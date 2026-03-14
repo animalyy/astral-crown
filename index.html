@@ -69,7 +69,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 #mapSvg{width:100%;height:auto;display:block;border-radius:16px;overflow:visible}.link{stroke:#4660a0;stroke-opacity:.55;stroke-width:2}.link.hot{stroke:#d6ae53;stroke-opacity:.9;stroke-dasharray:5 4;animation:dashmove 1.6s linear infinite}@keyframes dashmove{to{stroke-dashoffset:-20}}
 .sectorCore{cursor:pointer;transition:filter .15s ease,transform .15s ease}.sectorCore.emp{fill:#3a2f10;stroke:#d6ae53}.sectorCore.fed{fill:#12304b;stroke:#67b6ef}.sectorCore.neu{fill:#25365c;stroke:#8090bc}.sectorCore.core{stroke-width:3}.sectorCore.trade{filter:drop-shadow(0 0 8px rgba(90,255,220,.22))}.sectorCore.fort{filter:drop-shadow(0 0 8px rgba(214,174,83,.20))}.sectorCore.hazard{filter:drop-shadow(0 0 10px rgba(220,90,160,.18))}.sectorCore.focus{animation:sectorPulse 1.7s infinite}
 @keyframes sectorPulse{0%,100%{filter:drop-shadow(0 0 4px rgba(255,255,255,.15))}50%{filter:drop-shadow(0 0 13px rgba(255,255,255,.55))}}
-.sectorLabel{font-size:9.3px;fill:#ebf0ff;font-weight:800;text-anchor:middle;pointer-events:none}.sectorSub{font-size:7.6px;fill:#a8bbe7;text-anchor:middle;pointer-events:none}.miniMapLegend{position:absolute;right:8px;top:8px;display:grid;gap:4px;z-index:2}
+.sectorLabel{font-size:9.3px;fill:#ebf0ff;font-weight:800;text-anchor:middle;pointer-events:none}.sectorSub{font-size:7.6px;fill:#a8bbe7;text-anchor:middle;pointer-events:none}.miniMapLegend{position:relative;right:auto;top:auto;bottom:auto;display:flex;justify-content:flex-end;gap:4px;z-index:2;padding:6px 6px 2px;flex-wrap:wrap}.miniMapLegend .tag{font-size:9.4px;padding:2px 6px;border-radius:999px;background:rgba(8,16,36,.88)}
 .pop,.ov{position:absolute;inset:0;display:none;z-index:60}.pop.on,.ov.on{display:block}.dim{position:absolute;inset:0;background:rgba(0,0,0,.62);z-index:0}
 .panel{position:absolute;left:0;right:0;bottom:0;max-width:470px;margin:0 auto;max-height:88dvh;overflow:auto;background:linear-gradient(180deg,#121e44,#0c1631);border:1px solid rgba(255,255,255,.09);border-top-left-radius:24px;border-top-right-radius:24px;padding:15px 13px calc(18px + var(--safeB));z-index:1}
 .ov .panel{top:0;bottom:0;border-radius:0;max-height:none;padding-top:calc(12px + var(--safeT))}
@@ -160,7 +160,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
           
           <div id="mapWrap" style="min-height:360px"><svg id="mapSvg" viewBox="18 28 386 220" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
           <div style="margin-top:3px">
-            <div class="row bet" style="margin-bottom:4px"><div class="f1"><div class="sub" id="advice">-</div></div><button id="nextTurnBtn" class="btn sm emp" onclick="nextTurn()">次星暦</button></div>
+            <div class="row bet" style="margin-bottom:4px;align-items:flex-start;gap:8px"><div class="f1" style="min-width:0"><div class="sub" id="advice" style="font-size:11.2px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere">-</div></div><button id="nextTurnBtn" class="btn sm emp" style="min-width:86px;flex:0 0 auto" onclick="nextTurn()">次星暦</button></div>
             <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">戦史</button></div>
           </div>
         </div>
