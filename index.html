@@ -304,6 +304,49 @@ const SHIPS = {
   emp:{raijin:{n:'雷刃級',f:8,a:4,m:7,s:4,l:4},juger:{n:'重槍級',f:9,a:9,m:4,s:4,l:5},black:{n:'黒冠級',f:7,a:7,m:5,s:4,l:5},iron:{n:'鉄壁級',f:5,a:10,m:2,s:3,l:4}},
   fed:{meteor:{n:'流星級',f:5,a:4,m:9,s:8,l:7},azure:{n:'蒼翼級',f:6,a:6,m:7,s:7,l:8},egret:{n:'白鷺級',f:2,a:4,m:6,s:10,l:10},wall:{n:'城壁級',f:5,a:8,m:4,s:6,l:7}}
 };
+
+function fleetEffectiveStats(fl){
+  const lib = SHIPS[fl.side];
+  if(!lib) return {fire:0,armor:0,mob:0,scout:0,link:0};
+  const a = lib[fl.front], m = lib[fl.main], s = lib[fl.support];
+  if(!a || !m || !s) return {fire:0,armor:0,mob:0,scout:0,link:0};
+  let fire = Math.round(a.f*0.25 + m.f*0.55 + s.f*0.20);
+  let armor = Math.round(a.a*0.35 + m.a*0.45 + s.a*0.20);
+  let mob = Math.round(a.m*0.45 + m.m*0.35 + s.m*0.20);
+  let scout = Math.round(a.s*0.20 + m.s*0.25 + s.s*0.55);
+  let link = Math.round(a.l*0.20 + m.l*0.30 + s.l*0.50);
+  if(fl.support==='egret'){ scout += 3; link += 3; }
+  if(fl.front==='raijin'){ fire += 2; }
+  if(fl.front==='iron' || fl.front==='wall'){ armor += 2; }
+  const strength = (typeof fl.strength==='number' ? fl.strength : 100) / 100;
+  const morale = (typeof fl.morale==='number' ? fl.morale : 80) / 100;
+  const supply = (typeof fl.supply==='number' ? fl.supply : 80) / 100;
+  fire *= (0.58 + strength*0.42) * (0.72 + morale*0.28);
+  armor *= (0.62 + strength*0.38);
+  mob *= (0.68 + supply*0.32);
+  scout *= (0.72 + supply*0.28);
+  link *= (0.72 + morale*0.14 + supply*0.14);
+  if(fl.status){
+    if(fl.status.fatigue){ fire *= 0.90; mob *= 0.88; }
+    if(fl.status.routed){ fire *= 0.76; armor *= 0.80; mob *= 0.86; }
+    if(fl.status.shaken){ fire *= 0.90; link *= 0.85; }
+    if(fl.status.supplyBroken){ mob *= 0.82; scout *= 0.86; fire *= 0.92; }
+    if(fl.status.inspired){ fire *= 1.08; link *= 1.06; }
+  }
+  return {fire, armor, mob, scout, link};
+}
+
+function fleetStatusBadges(fl){
+  if(!fl || !fl.status) return '';
+  const arr = [];
+  if(fl.status.routed) arr.push(['潰走直後','routed']);
+  if(fl.status.fatigue) arr.push(['疲弊','fatigue']);
+  if(fl.status.shaken) arr.push(['士気動揺','shaken']);
+  if(fl.status.supplyBroken) arr.push(['補給不全','supplyBroken']);
+  if(fl.status.inspired) arr.push(['高揚','inspired']);
+  return arr.map(([txt,cls])=>`<span class="statusPill status-${cls}">${txt}</span>`).join('');
+}
+
 const PEOPLE = [
   {id:'ares',name:'アレス・ヴァルクレイン',fac:'emp',role:'帝国軍大将',atk:1.22,def:0.92,read:0.48,specialty:['中央突破','全軍突撃']},
   {id:'lucas',name:'ルーカス・エーヴェルト',fac:'emp',role:'帝国軍上級大将',atk:1.05,def:1.18,read:0.30,specialty:['防御維持','補給線狙い']},
