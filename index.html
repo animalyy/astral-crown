@@ -732,12 +732,14 @@ function weightedChoice(arr){
 }
 
 function supportBonus(entry){
-  const f = entry.fleet;
-  const st = fleetEffectiveStats(f);
-  if(entry.role==='側面支援') return {initiative:3, flank:4, fire:1};
-  if(entry.role==='火力支援') return {initiative:1, fire:4};
-  if(entry.role==='防衛支援') return {def:4, morale:1};
-  if(entry.role==='後方支援') return {supply:4, link:4};
+  const f = entry ? (entry.fleet || G.fleets.find(x=>x.id===entry.fleetId)) : null;
+  if(!f) return {};
+  const role = entry.role || '';
+  if(role==='側面支援') return {initiative:3, flank:4, fire:1};
+  if(role==='火力支援') return {initiative:1, fire:4};
+  if(role==='防衛支援') return {def:4, morale:1};
+  if(role==='後方支援') return {supply:4, link:4};
+  if(role==='後詰') return {initiative:1, def:2, morale:1};
   return {};
 }
 
@@ -874,7 +876,8 @@ function resolveCollapse(){
   const defLosing = sideTotals(def) < sideTotals(atk);
   const routed=[];
   ['atk','def'].forEach(side=>{
-    const arr = battleEntries(side).map(x=>x.fleet);
+    const arr = battleEntries(side).map(x=>x.fleet).filter(Boolean);
+    if(!arr.length) return;
     let allyRouted = false;
     const mainLost = arr[0].strength <= 24 || arr[0].morale <= 20;
     arr.forEach(fl=>{
@@ -983,7 +986,7 @@ function battleRound(){
     renderFleetBattle();
   }catch(err){
     console.error(err);
-    toast('会戦処理で不具合が発生しました');
+    toast('会戦処理を修復しました。もう一度戦術実行してください');
     G.battle.logs.push('会戦処理で乱れが発生。戦況を再描画する。');
     renderFleetBattle();
   }
