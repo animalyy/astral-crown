@@ -579,6 +579,28 @@ function applyPolicy(id){ if(!spendAP()) return; const p=POLICIES.find(x=>x.id==
 function editFleet(fid){ const f = G.fleets.find(x=>x.id===fid), lib = SHIPS[f.side]; const mk = (slot)=>Object.keys(lib).map(k=>`<button class="btn sm ${f[slot]===k?'':'g'}" onclick="setShip('${fid}','${slot}','${k}')">${lib[k].n}</button>`).join(''); $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:16px">${f.name} 編成</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px;font-size:12px">前衛</div><div class="g2">${mk('front')}</div></div><div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px;font-size:12px">主力</div><div class="g2">${mk('main')}</div></div><div class="item"><div class="sub" style="margin-bottom:6px;font-size:12px">支援</div><div class="g2">${mk('support')}</div></div>`; $('#modal').classList.add('on'); }
 function setShip(fid,slot,key){ G.fleets.find(x=>x.id===fid)[slot]=key; markDirty(); renderWar(); editFleet(fid); }
 
+
+function cmdMatch(myCmd, enemyCmd){
+  const myType = CMD_TYPE[myCmd] || '';
+  const enemyType = CMD_TYPE[enemyCmd] || '';
+  if(myType === enemyType) return 'tie';
+  if(myType === 'charge' && enemyType === 'fort') return 'win';
+  if(myType === 'fort' && enemyType === 'flank') return 'win';
+  if(myType === 'flank' && enemyType === 'charge') return 'win';
+  return 'lose';
+}
+function aiMainCommand(side, sec){
+  if(!sec) return side==='emp' ? '中央突破' : '防御維持';
+  if(sec.type === 'fort') return Math.random() < 0.55 ? '要塞砲撃' : '防御維持';
+  if(sec.type === 'trade') return Math.random() < 0.5 ? '補給線狙い' : '翼包囲';
+  if(sec.type === 'core') return Math.random() < 0.5 ? '防御維持' : '要塞砲撃';
+  if(sec.type === 'haz_asteroid') return Math.random() < 0.5 ? '翼包囲' : '補給線狙い';
+  if(sec.type === 'haz_blackhole') return Math.random() < 0.5 ? '防御維持' : '中央突破';
+  if(side === 'emp'){
+    return Math.random() < 0.6 ? '中央突破' : '全軍突撃';
+  }
+  return Math.random() < 0.5 ? '翼包囲' : '防御維持';
+}
 function roleForFleet(fl, fieldType, isMain=false){
   if(!fl) return '支援';
   if(isMain) return '主攻';
