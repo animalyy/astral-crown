@@ -129,14 +129,14 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
       <div class="g2"><button class="btn emp" onclick="newGame('emp')">帝国軍 起動</button><button class="btn" onclick="newGame('fed')">同盟軍 起動</button></div>
     </div>
     <div class="card">
-      <div class="title" style="font-size:15.3px">戦歴呼出</div>
-      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('auto')">自動記録</button><button class="btn sm g" onclick="loadGame('quick')">即時記録</button></div>
-      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('m1')">星暦記録1</button><button class="btn sm warn" onclick="wipeAll()">全削除</button></div>
+      <div class="title" style="font-size:15.3px">読込</div>
+      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('auto')">オート</button><button class="btn sm g" onclick="loadGame('quick')">クイック</button></div>
+      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('m1')">手動1</button><button class="btn sm warn" onclick="wipeAll()">全削除</button></div>
     </div>
   </div>
 
   <header id="top" class="top hide">
-    <div class="row bet"><div><div class="title" id="hTitle" style="font-size:13.6px;line-height:1.05">-</div><div class="sub mono" id="hSub" style="margin-top:1px">-</div></div><div class="row"><span class="badge" id="saveMark">未記録</span><button class="btn sm g" onclick="showScreen('set')">戦史</button></div></div>
+    <div class="row bet"><div><div class="title" id="hTitle" style="font-size:13.6px;line-height:1.05">-</div><div class="sub mono" id="hSub" style="margin-top:1px">-</div></div><div class="row"><span class="badge" id="saveMark">未保存</span><button class="btn sm g" onclick="showScreen('set')">セーブ</button></div></div>
     <div class="hud">
       <div class="stat"><b>資金</b><span id="vMoney">0</span></div>
       <div class="stat"><b>戦意</b><span id="vWar">0</span></div>
@@ -160,8 +160,8 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
           
           <div id="mapWrap" style="min-height:360px"><svg id="mapSvg" viewBox="18 28 386 220" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
           <div style="margin-top:3px">
-            <div class="row bet" style="margin-bottom:4px;align-items:flex-start;gap:8px"><div class="f1" style="min-width:0"><div class="sub" id="advice" style="font-size:11.2px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere">-</div></div><button id="nextTurnBtn" class="btn sm emp" style="min-width:86px;flex:0 0 auto" onclick="nextTurn()">次星暦</button></div>
-            <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">戦史</button></div>
+            <div class="row bet" style="margin-bottom:4px;align-items:flex-start;gap:8px"><div class="f1" style="min-width:0"><div class="sub" id="advice" style="font-size:11.2px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere">-</div></div><button id="nextTurnBtn" class="btn sm emp" style="min-width:86px;flex:0 0 auto" onclick="nextTurn()">次ターン</button></div>
+            <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">セーブ</button></div>
           </div>
         </div>
         <div class="card"><div class="row wrap" id="recentChoices"></div></div>
@@ -170,7 +170,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 
     <section id="scr-war" class="screen">
       <div class="stack tall">
-        <div class="card"><div class="row bet"><div class="title" style="font-size:13.6px">艦隊戦列</div><button class="btn sm g" onclick="openModal('battleHelp')">交戦規範</button></div><div class="smallHelp" style="margin-top:8px">艦隊会戦と占領戦は分離される。敵艦隊を潰走させても、補給と包囲圧が足りなければ宙域は落ちない。敗北艦隊は隣接宙域へ潰走し、次星暦の前線が歪む。</div></div>
+        <div class="card"><div class="row bet"><div class="title" style="font-size:13.6px">艦隊戦列</div><button class="btn sm g" onclick="openModal('battleHelp')">交戦規範</button></div><div class="smallHelp" style="margin-top:8px">艦隊会戦と占領戦は分離される。敵艦隊を潰走させても、補給と包囲圧が足りなければ宙域は落ちない。敗北艦隊は隣接宙域へ潰走し、次ターンの前線が歪む。</div></div>
         <div class="card scroll list" id="fleetList"></div>
         <div class="card"><div class="sub">複数艦隊会戦では主攻と支援の役割が分かれる。蒼穹回廊、自由商港、双星要塞、中枢では3対3の大規模局地戦が起こりうる。</div></div>
       </div>
@@ -205,8 +205,8 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 
     <section id="scr-set" class="screen">
       <div class="stack home">
-        <div class="card"><div class="title" style="font-size:13.6px">戦史</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">即時記録</button><button class="btn sm g" onclick="loadGame('quick')">即時記録戦歴呼出</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">星暦記録1 戦史</button><button class="btn sm g" onclick="loadGame('m1')">星暦記録1 戦歴呼出</button></div></div>
-        <div class="card"><div class="sub">自動記録セーブは行動後と次星暦時に実行されます。</div></div>
+        <div class="card"><div class="title" style="font-size:13.6px">セーブ</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">クイック</button><button class="btn sm g" onclick="loadGame('quick')">クイック読込</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">手動1 セーブ</button><button class="btn sm g" onclick="loadGame('m1')">手動1 読込</button></div></div>
+        <div class="card"><div class="sub">オートセーブは行動後と次ターン時に実行されます。</div></div>
       </div>
     </section>
   </main>
@@ -215,8 +215,8 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <button class="on" data-screen="home" onclick="showScreen('home',this)">司令卓</button>
     <button data-screen="war" onclick="showScreen('war',this)">艦隊府</button>
     <button data-screen="dom" onclick="showScreen('dom',this)">統治府</button>
-    <button data-screen="rec" onclick="showScreen('rec',this)">戦史</button>
-    <button onclick="openModal('help')">戦局規範</button>
+    <button data-screen="rec" onclick="showScreen('rec',this)">セーブ</button>
+    <button onclick="openModal('help')">勝利条件</button>
     <button data-screen="set" onclick="showScreen('set',this)">管制</button>
   </nav>
 
@@ -224,13 +224,13 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
   <div id="battleOverlay" class="ov"><div class="panel" id="battleBody"></div></div>
   <div id="toast" class="toast"></div><div id="deltaFloat"></div>
   <div id="eventOverlay"><div id="eventCard" class="eventCard"><div class="eventTitle" id="eventTitle">-</div><div class="eventBody" id="eventBody">-</div><div class="eventSmall" id="eventSmall">-</div></div></div>
-  <div id="apPrompt"><div style="font-weight:900;margin-bottom:4px;font-size:14.4px">命令権限が尽きました</div><div class="smallHelp" id="apPromptText">次星暦を進め、星域の推移を見届けてください。</div></div>
+  <div id="apPrompt"><div style="font-weight:900;margin-bottom:4px;font-size:14.4px">命令権限が尽きました</div><div class="smallHelp" id="apPromptText">次ターンを進め、星域の推移を見届けてください。</div></div>
 </div>
 <script>
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 const STORE_KEY = "astral_crown_integrated_v1_2";
-const SLOT_NAME = {auto:"自動記録", quick:"即時記録", m1:"星暦記録1"};
+const SLOT_NAME = {auto:"オート", quick:"クイック", m1:"手動1"};
 const SCREEN_ORDER = ["home","war","dom","rec","set"];
 const CMDS = ["中央突破","防御維持","翼包囲","補給線狙い","要塞砲撃","全軍突撃"];
 const CMD_TYPE = {"中央突破":"charge","全軍突撃":"charge","防御維持":"fort","要塞砲撃":"fort","翼包囲":"flank","補給線狙い":"flank"};
@@ -285,7 +285,7 @@ function ownerName(o){ return o==='emp' ? '帝国' : o==='fed' ? '同盟' : '中
 function importantSector(id){ return [0,5,6,7,11].includes(id); }
 function sectorTypeName(t){ return ({core:'中枢',lane:'回廊',ind:'工業圏',trade:'商港',fort:'要塞',rim:'辺境',gate_hazard:'関門',haz_blackhole:'黒門',haz_asteroid:'乱礫域'})[t] || '宙域'; }
 function loadStore(){ return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); }
-function markDirty(){ if(G){ G.nation.dirty = true; $('#saveMark').textContent = '未記録'; } }
+function markDirty(){ if(G){ G.nation.dirty = true; $('#saveMark').textContent = '未保存'; } }
 function toast(msg){ const t=$('#toast'); t.textContent=msg; t.style.opacity='1'; clearTimeout(t._x); t._x=setTimeout(()=>t.style.opacity='0',2200); }
 function showDelta(lines){ const wrap=$('#deltaFloat'); const vp=window.innerHeight || 700; lines.forEach((item,i)=>{ if(!item || !item.label) return; const val=item.val||0; const el=document.createElement('div'); el.className='dv'; el.style.color = val >= 0 ? '#8dffbe' : '#ff8f8f'; el.style.bottom = (Math.round(vp * 0.34) + i * 40) + 'px'; el.style.left = (28 + Math.random() * 44) + '%'; el.textContent = (val > 0 ? '+' : '') + val + ' ' + item.label; wrap.appendChild(el); setTimeout(()=>el.remove(), 3000); }); }
 function delta(title, body){ if(!G) return; G.nation.headline = title + '。' + body; logc(title + '。' + body); const lines=[]; const re=/([^\s+\-0-9、。,，\u3000]+)([+-]\d+)/g; let m; while((m=re.exec(body))!==null){ lines.push({label:m[1], val:parseInt(m[2],10)}); } if(lines.length) showDelta(lines); }
@@ -357,7 +357,7 @@ function saveGame(slot, quiet=false){
   const slots = loadStore();
   slots[slot] = deep(G);
   localStorage.setItem(STORE_KEY, JSON.stringify(slots));
-  $('#saveMark').textContent = SLOT_NAME[slot] + '記録済';
+  $('#saveMark').textContent = SLOT_NAME[slot] + '保存済';
   if(!quiet) toast(SLOT_NAME[slot] + 'へ記録');
 }
 
@@ -470,7 +470,7 @@ function pickPolicies(){
 function adviceText(){
   const n=G.nation, my=ownS().length;
   if(n.ap>0) return `行動点 ${n.ap}。今ターンは、${G.flags.lastIntel || 'どの宙域を次の火線へ変えるか'} が論点だ。`;
-  if(n.leg<36) return '正統性が危険域。次星暦以降、内側から崩れる恐れがある。';
+  if(n.leg<36) return '正統性が危険域。次ターン以降、内側から崩れる恐れがある。';
   if(n.credit<28) return '信用が細い。自由商港か工業圏の立て直しが必要だ。';
   if(own()==='emp'){
     if(n.gauge>62) return '帝国は勝つほど腐る。停滞を抑えなければ、征服の果実が毒へ変わる。';
@@ -574,7 +574,7 @@ function renderAll(){
   $('#vIdeal').textContent = G.nation.ideal;
   $('#vCult').textContent = G.nation.cultIndex; $('#bCult').style.width = G.nation.cultIndex + '%'; $('#cultDesc').textContent = cultDesc();
   $('#vCorp').textContent = G.nation.corpIndex; $('#bCorp').style.width = G.nation.corpIndex + '%'; $('#corpDesc').textContent = corpDesc();
-  $('#saveMark').textContent = G.nation.dirty ? '未記録' : '記録済';
+  $('#saveMark').textContent = G.nation.dirty ? '未保存' : '保存済';
   $('#headline').textContent = G.nation.headline;
   $('#advice').textContent = adviceText();
   $('#recentChoices').innerHTML = G.recentChoices.length ? G.recentChoices.map(x=>`<span class="choiceChip">${x}</span>`).join('') : '<span class="choiceChip">まだ選択なし</span>';
@@ -588,7 +588,7 @@ function renderAll(){
 }
 
 function openModal(type){
-  if(type==='help') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">戦局規範</div><button class="btn sm g" onclick="closeModal()">帰投</button></div>${conditionsHtml()}`;
+  if(type==='help') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">勝利条件</div><button class="btn sm g" onclick="closeModal()">帰投</button></div>${conditionsHtml()}`;
   if(type==='battleHelp') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">交戦規範</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">敵艦隊がいる宙域へ侵攻すると、まず艦隊会戦が発生する。通常宙域は最大2対2、重要宙域は最大3対3。敗北艦隊は隣接宙域へ潰走し、前線の形が変わる。敵を退けたあと、戦力維持、補給、包囲圧が足りていれば占領戦へ移る。勝っても、すぐには落ちない。</div>`;
   $('#modal').classList.add('on');
 }
@@ -642,7 +642,7 @@ function buildIntelForecast(){
   const target = sectorById(plan.target);
   let txt = `${source.name} 周辺で艦隊集結を確認。${target.name} への侵攻可能性あり。`;
   if(G.flags.intel >= 2){
-    txt = `自軍傍受部報告。${source.name} 周辺で敵艦隊集結。次星暦、${target.name} への侵攻可能性が高い。`;
+    txt = `自軍傍受部報告。${source.name} 周辺で敵艦隊集結。次ターン、${target.name} への侵攻可能性が高い。`;
   }
   if(G.flags.intel >= 4){
     const phrase = foe()==='emp' ? `${target.name} を制せば統一路線が再加速する` : `${target.name} を守れなければ和平の土台が崩れる`;
@@ -922,7 +922,7 @@ function resolveCollapse(){
       if(fl.strength >= 70 && fl.morale >= 65 && !allyRouted) fl.status.inspired = clamp(fl.status.inspired + 1, 0, 2);
     });
   });
-  routed.forEach(r=>emitEvent(`${r.fleet.name} 潰走`, `${r.fleet.name} は統制を失い、${r.dest.name} へ後退した。`, 'warn', 1700, '潰走艦隊は次星暦侵攻できない。'));
+  routed.forEach(r=>emitEvent(`${r.fleet.name} 潰走`, `${r.fleet.name} は統制を失い、${r.dest.name} へ後退した。`, 'warn', 1700, '潰走艦隊は次ターン侵攻できない。'));
   return routed;
 }
 
@@ -1323,8 +1323,8 @@ function checkEnd(){
   if(win || lose){
     G.progress.ended = true;
     const endKey = win || lose;
-    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, '戦史と年代記へ、この結末が刻まれる。');
-    $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:17px;color:${win?'var(--ok)':'var(--bad)'}">${endKey}</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">${endingText(endKey)}</div><div class="item" style="margin-top:10px">宙域 ${my} / 正統性 ${n.leg} / 信用 ${n.credit} / 戦意 ${n.war} / 軍圧 ${n.pressure}</div><div class="g2" style="margin-top:10px"><button class="btn" onclick="saveGame('quick');closeModal()">戦史</button><button class="btn g" onclick="location.reload()">タイトルへ</button></div>`;
+    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, '勝利記録と年代記へ、この結末が刻まれる。');
+    $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:17px;color:${win?'var(--ok)':'var(--bad)'}">${endKey}</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">${endingText(endKey)}</div><div class="item" style="margin-top:10px">宙域 ${my} / 正統性 ${n.leg} / 信用 ${n.credit} / 戦意 ${n.war} / 軍圧 ${n.pressure}</div><div class="g2" style="margin-top:10px"><button class="btn" onclick="saveGame('quick');closeModal()">セーブ</button><button class="btn g" onclick="location.reload()">タイトルへ</button></div>`;
     $('#modal').classList.add('on');
   }
 }
