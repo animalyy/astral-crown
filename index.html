@@ -776,7 +776,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
     return;
   }
   const nextBattle = {
-    mode:'fleet', targetId, round:1, maxRounds:4, finished:false, ctx,
+    mode:'fleet', targetId, round:1, maxRounds:3, finished:false, ctx,
     atk:forces.atk.map(x=>({fleetId:x.fleet.id, side:'atk', role:x.role})),
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
@@ -950,7 +950,7 @@ function renderFleetBattle(){
       <div class="battleHeaderRow">
         <div class="battleMeta card battleInfoCard">
           <div class="title" style="font-size:17px">${sec.name}</div>
-          <div class="battleSubline">第${G.battle.round}局面 / 全4局面</div>
+          <div class="battleSubline">第${G.battle.round}局面 / 全3局面</div>
           <div class="smallHelp">敵艦隊がこの宙域にいるため、まず艦隊会戦を行う。敵を押し崩し、補給と包囲圧が足りた時だけ鎮圧戦へ移る。</div>
         </div>
         <div class="card battleInfoCard">
@@ -1103,7 +1103,7 @@ function prepareOccupationBattle(sectorId, atkEntries, ctx, meta){
       }).filter(Boolean)
     : [];
   return {
-    mode:'occupation', targetId:sectorId, step:1, maxSteps:2, ctx, logs:[`${sec.name} で鎮圧戦を開始。`],
+    mode:'occupation', targetId:sectorId, step:1, maxSteps:3, ctx, logs:[`${sec.name} で鎮圧戦を開始。`],
     survivors: survivors.map(f=>f.id), pressure: computeSiegePressure(sec, survivors), meta,
     playerOccCmd:null
   };
