@@ -536,6 +536,68 @@ function applyPolicy(id){ if(!spendAP()) return; const p=POLICIES.find(x=>x.id==
 function editFleet(fid){ const f = G.fleets.find(x=>x.id===fid), lib = SHIPS[f.side]; const mk = (slot)=>Object.keys(lib).map(k=>`<button class="btn sm ${f[slot]===k?'':'g'}" onclick="setShip('${fid}','${slot}','${k}')">${lib[k].n}</button>`).join(''); $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:16px">${f.name} 編成</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px;font-size:12px">前衛</div><div class="g2">${mk('front')}</div></div><div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px;font-size:12px">主力</div><div class="g2">${mk('main')}</div></div><div class="item"><div class="sub" style="margin-bottom:6px;font-size:12px">支援</div><div class="g2">${mk('support')}</div></div>`; $('#modal').classList.add('on'); }
 function setShip(fid,slot,key){ G.fleets.find(x=>x.id===fid)[slot]=key; markDirty(); renderWar(); editFleet(fid); }
 
+function roleForFleet(fl, fieldType, isMain=false){
+  if(!fl) return '支援';
+  if(isMain) return '主攻';
+  const st = fleetEffectiveStats(fl);
+  if(fieldType==='fort' || fieldType==='core'){
+    if(st.armor >= st.fire && st.link >= st.mob) return '防衛支援';
+  }
+  if(st.mob >= st.armor + 1) return '側面支援';
+  if(st.link >= st.fire && st.link >= st.armor) return '後方支援';
+  if(st.fire >= st.armor) return '火力支援';
+  return '防衛支援';
+}
+function gatherBattleForces(targetId, attackerFleetId){
+  const target = sectorById(targetId);
+  const atkMain = G.fleets.find(f=>f.id===attackerFleetId);
+  if(!atkMain) return {atk:[], def:[], max:0};
+  const max = importantSector(targetId) ? 3 : 2;
+  const atkSupport = fleetsBySide(own())
+    .filter(f=>f.id!==attackerFleetId && ADJ[f.loc].includes(targetId) && !(f.status && f.status.routed))
+    .sort((a,b)=>(b.supply+b.morale+b.strength)-(a.supply+a.morale+a.strength))
+    .slice(0, max-1);
+  const localDefenders = fleetsBySide(foe())
+    .filter(f=>f.loc===targetId && !(f.status && f.status.routed))
+    .sort((a,b)=>(b.supply+b.morale+b.strength)-(a.supply+a.morale+a.strength))
+    .slice(0, max);
+  return {
+    atk:[atkMain, ...atkSupport].map((f,i)=>({fleet:f, role:roleForFleet(f, target.type, i===0)})),
+    def:localDefenders.map((f,i)=>({fleet:f, role:roleForFleet(f, target.type, i===0)})),
+    max
+  };
+}
+function sectorBattleModifier(sector){
+  return {
+    initAtk: sector.type==='lane' ? 3 : sector.type==='haz_asteroid' ? 2 : 0,
+    initDef: sector.type==='fort' ? 4 : sector.type==='core' ? 4 : 0,
+    flankBonus: sector.type==='haz_asteroid' ? 4 : sector.type==='trade' ? 3 : 0,
+    fortBonus: sector.type==='fort' ? 6 : sector.type==='core' ? 4 : 0,
+    scoutVariance: sector.type==='gate_hazard' ? 4 : 0,
+    mobilityPenalty: sector.type==='haz_blackhole' ? 4 : 0,
+    occupationPenalty: sector.type==='fort' ? 18 : sector.type==='core' ? 16 : sector.type==='trade' ? 10 : 0
+  };
+}
+function buildBattleContext(targetId, forces){
+  const sec = sectorById(targetId);
+  const mod = sectorBattleModifier(sec);
+  const intelEdge = (G && G.flags ? G.flags.intel : 0) || 0;
+  const total = (forces.atk?.length||0) + (forces.def?.length||0);
+  const type = sec.type==='fort' ? '要塞攻囲戦' : sec.type==='core' ? '中枢攻略戦' : (total >= 5 ? '大規模艦隊戦' : total >= 3 ? '複数艦隊遭遇戦' : '艦隊遭遇戦');
+  return {sector:sec, mod, intelEdge, type};
+}
+function supportBonus(entry){
+  const f = entry ? (entry.fleet || G.fleets.find(x=>x.id===entry.fleetId)) : null;
+  if(!f) return {};
+  const role = entry.role || '';
+  if(role==='側面支援') return {initiative:3, flank:4, fire:1};
+  if(role==='火力支援') return {initiative:1, fire:4};
+  if(role==='防衛支援') return {def:4, morale:1};
+  if(role==='後方支援') return {supply:4, link:4};
+  if(role==='後詰') return {initiative:1, def:2, morale:1};
+  return {};
+}
+
 function selectAttack(targetId){
   const sec = sectorById(targetId);
   const fleets = fleetsBySide(own()).filter(f=>ADJ[f.loc].includes(targetId) && !(f.status && f.status.routed));
