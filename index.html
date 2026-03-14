@@ -396,7 +396,22 @@ function weightedChoice(arr){ const total = arr.reduce((a,b)=>a+b[1],0); let r =
 function supportBonus(entry){ const f = entry ? (entry.fleet || G.fleets.find(x=>x.id===entry.fleetId)) : null; if(!f) return {}; const role = entry.role || ''; if(role==='側面支援') return {initiative:3, flank:4, fire:1}; if(role==='火力支援') return {initiative:1, fire:4}; if(role==='防衛支援') return {def:4, morale:1}; if(role==='後方支援') return {supply:4, link:4}; if(role==='後詰') return {initiative:1, def:2, morale:1}; return {}; }
 function hasEnemyFleetInSector(sectorId){ return fleetsBySide(foe()).some(f=>f.loc===sectorId && !f.status.routed); }
 function ensureBattleState(mode){ if(!G || !G.battle){ toast('会戦データがありません'); return false; } if(mode && G.battle.mode!==mode){ toast(mode==='fleet'?'艦隊戦データを再読込してください':'制圧戦データを再読込してください'); return false; } return true; }
-function prepareCampaignBattle(attackerFleetId, targetId){ try{ if(!spendAP()) return; closeModal(); const forces = gatherBattleForces(targetId, attackerFleetId); if(!forces || !forces.atk || !forces.atk.length){ G.nation.ap += 1; toast('進軍可能な艦隊がいません'); return; } const ctx = buildBattleContext(targetId, forces); const sec = ctx.sector; const enemyPresent = (forces.def && forces.def.length > 0) || hasEnemyFleetInSector(targetId); const attackMain = forces.atk[0].fleet; if(attackMain) attackMain.consecutiveFrontTurns += 1; if(!enemyPresent){ const occ = prepareOccupationBattle(sec.id, forces.atk, ctx, {kind:'free'}); emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1400, 'ここは艦隊戦ではなく、直接の制圧戦だ。', ()=>{ G.battle = occ; renderOccupationBattle(); }); return; } const nextBattle = { mode:'fleet', targetId, round:1, maxRounds:4, finished:false, ctx, atk:forces.atk.map(x=>({fleetId:x.fleet.id, side:'atk', role:x.role})), def:(forces.def||[]).map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})), playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null }; emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1500, 'このフラッシュの後に、艦隊戦画面へ切り替わる。', ()=>{ G.battle = nextBattle; renderFleetBattle(); }); }catch(err){ console.error(err); toast('進軍処理で不具合が発生しました'); if(G) G.nation.ap += 1; } }
+
+function queuePostFlashTransition(after, delayMs){
+  const safeDelay = Math.max(1550, delayMs || 0);
+  clearTimeout(window.__astralBattleTransitionTimer);
+  window.__astralBattleTransitionTimer = setTimeout(()=>{
+    try{
+      const overlay = $('#eventOverlay');
+      if(overlay) overlay.classList.remove('on');
+      if(typeof after === 'function') after();
+    }catch(err){
+      console.error(err);
+      toast('戦闘遷移で不具合が発生しました');
+    }
+  }, safeDelay);
+}
+function prepareCampaignBattle(attackerFleetId, targetId){ try{ if(!spendAP()) return; renderAll(); closeModal(); const forces = gatherBattleForces(targetId, attackerFleetId); if(!forces || !forces.atk || !forces.atk.length){ G.nation.ap += 1; toast('進軍可能な艦隊がいません'); renderAll(); return; } const ctx = buildBattleContext(targetId, forces); const sec = ctx.sector; const enemyPresent = (forces.def && forces.def.length > 0) || hasEnemyFleetInSector(targetId); const attackMain = forces.atk[0].fleet; if(attackMain) attackMain.consecutiveFrontTurns += 1; if(!enemyPresent){ const occ = prepareOccupationBattle(sec.id, forces.atk, ctx, {kind:'free'}); emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1400, 'ここは艦隊戦ではなく、直接の制圧戦だ。'); queuePostFlashTransition(()=>{ G.battle = occ; renderOccupationBattle(); }, 1500); return; } const nextBattle = { mode:'fleet', targetId, round:1, maxRounds:4, finished:false, ctx, atk:forces.atk.map(x=>({fleetId:x.fleet.id, side:'atk', role:x.role})), def:(forces.def||[]).map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})), playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null }; emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1500, 'このフラッシュの後に、艦隊戦画面へ切り替わる。'); queuePostFlashTransition(()=>{ G.battle = nextBattle; renderFleetBattle(); }, 1550); }catch(err){ console.error(err); toast('進軍処理で不具合が発生しました'); if(G) G.nation.ap += 1; renderAll(); } }
 function battleEntries(side){ return G.battle[side].map(x=>({entry:x, fleet:G.fleets.find(f=>f.id===x.fleetId)})); }
 function mainEntry(side){ return G.battle[side][0]; }
 function getCmdr(fid){ const fl=G.fleets.find(f=>f.id===fid); return PEOPLE.find(p=>p.id===fl.cmd); }
