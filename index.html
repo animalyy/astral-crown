@@ -106,6 +106,12 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .battleSection{display:grid;gap:8px}.battleHeaderRow{display:grid;gap:6px}.battleMeta{display:grid;gap:4px;text-align:left}.battleMeta .title{font-size:18.7px}.battleSubline{font-size:11.9px;color:var(--sub);text-align:left}.battleExecRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.battleLogCard .title,.battleInfoCard .title{text-align:left}.battleInfoCard .smallHelp{margin-top:4px}.forceSideTitle{text-align:left;font-size:14.4px;font-weight:900;margin-bottom:4px}
 .startPanel{position:absolute;inset:0;z-index:70;padding:16px;display:grid;align-content:center;gap:12px}
 .bigTitle{font-size:28.9px;font-weight:900;line-height:1.1;margin-top:10px}
+#hTitle{font-size:clamp(17px,4.9vw,27px);line-height:1.12;letter-spacing:.02em;max-width:100%;word-break:keep-all;overflow-wrap:anywhere}
+#top .row.bet>div:first-child{flex:1;min-width:0}
+#top .row.bet>div:last-child{flex:0 0 auto}
+.startPanel .card .sub{line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+.startPanel .bigTitle{line-height:1.05}
+
 </style>
 </head>
 <body>
@@ -115,11 +121,11 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <div class="card">
       <div class="row bet"><span class="badge">シングルHTML</span><span class="badge">統合版 v1.2</span></div>
       <div class="bigTitle">星暦戦記<br><span style="color:var(--emp)">アストラル・クラウン</span></div>
-      <div class="sub" style="margin-top:8px;font-size:14.4px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊会戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。戦略布告、傍受、統治、戦史を統合してある。</div>
+      <div class="sub" style="margin-top:8px;font-size:12.2px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊会戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。戦略布告、傍受、統治、戦史を統合してある。</div>
     </div>
     <div class="card">
       <div class="title" style="font-size:15.3px">新規ゲーム</div>
-      <div class="sub" style="margin:8px 0 10px;font-size:12.8px">帝国は速攻と統一圧で押し込むが、停滞が腐食を呼ぶ。同盟は民心と制度を守るほど後半が強くなる。</div>
+      <div class="sub" style="margin:8px 0 10px;font-size:11.6px">帝国は速攻と統一圧で押し込むが、停滞が腐食を呼ぶ。同盟は民心と制度を守るほど後半が強くなる。</div>
       <div class="g2"><button class="btn emp" onclick="newGame('emp')">帝国軍 起動</button><button class="btn" onclick="newGame('fed')">同盟軍 起動</button></div>
     </div>
     <div class="card">
