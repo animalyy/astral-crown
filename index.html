@@ -121,7 +121,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <div class="card">
       <div class="row bet"><span class="badge">シングルHTML</span><span class="badge">統合版 v1.2</span></div>
       <div class="bigTitle">星暦戦記<br><span style="color:var(--emp)">アストラル・クラウン</span></div>
-      <div class="sub" style="margin-top:8px;font-size:12.2px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊会戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。戦略布告、傍受、統治、戦史を統合してある。</div>
+      <div class="sub" style="margin-top:8px;font-size:12.2px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊会戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。戦略布告、傍受、統治、セーブを統合してある。</div>
     </div>
     <div class="card">
       <div class="title" style="font-size:15.3px">新規ゲーム</div>
@@ -129,7 +129,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
       <div class="g2"><button class="btn emp" onclick="newGame('emp')">帝国軍 起動</button><button class="btn" onclick="newGame('fed')">同盟軍 起動</button></div>
     </div>
     <div class="card">
-      <div class="title" style="font-size:15.3px">読込</div>
+      <div class="title" style="font-size:15.3px">戦歴呼出</div>
       <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('auto')">オート</button><button class="btn sm g" onclick="loadGame('quick')">クイック</button></div>
       <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('m1')">手動1</button><button class="btn sm warn" onclick="wipeAll()">全削除</button></div>
     </div>
@@ -205,7 +205,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 
     <section id="scr-set" class="screen">
       <div class="stack home">
-        <div class="card"><div class="title" style="font-size:13.6px">セーブ</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">クイック</button><button class="btn sm g" onclick="loadGame('quick')">クイック読込</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">手動1 セーブ</button><button class="btn sm g" onclick="loadGame('m1')">手動1 読込</button></div></div>
+        <div class="card"><div class="title" style="font-size:13.6px">セーブ</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">クイック</button><button class="btn sm g" onclick="loadGame('quick')">クイック戦歴呼出</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">手動1 セーブ</button><button class="btn sm g" onclick="loadGame('m1')">手動1 戦歴呼出</button></div></div>
         <div class="card"><div class="sub">オートセーブは行動後と次ターン時に実行されます。</div></div>
       </div>
     </section>
@@ -357,7 +357,7 @@ function saveGame(slot, quiet=false){
   const slots = loadStore();
   slots[slot] = deep(G);
   localStorage.setItem(STORE_KEY, JSON.stringify(slots));
-  $('#saveMark').textContent = SLOT_NAME[slot] + '保存済';
+  $('#saveMark').textContent = SLOT_NAME[slot] + '記録済';
   if(!quiet) toast(SLOT_NAME[slot] + 'へ記録');
 }
 
@@ -574,7 +574,7 @@ function renderAll(){
   $('#vIdeal').textContent = G.nation.ideal;
   $('#vCult').textContent = G.nation.cultIndex; $('#bCult').style.width = G.nation.cultIndex + '%'; $('#cultDesc').textContent = cultDesc();
   $('#vCorp').textContent = G.nation.corpIndex; $('#bCorp').style.width = G.nation.corpIndex + '%'; $('#corpDesc').textContent = corpDesc();
-  $('#saveMark').textContent = G.nation.dirty ? '未保存' : '保存済';
+  $('#saveMark').textContent = G.nation.dirty ? '未保存' : '記録済';
   $('#headline').textContent = G.nation.headline;
   $('#advice').textContent = adviceText();
   $('#recentChoices').innerHTML = G.recentChoices.length ? G.recentChoices.map(x=>`<span class="choiceChip">${x}</span>`).join('') : '<span class="choiceChip">まだ選択なし</span>';
@@ -1323,7 +1323,7 @@ function checkEnd(){
   if(win || lose){
     G.progress.ended = true;
     const endKey = win || lose;
-    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, '勝利記録と年代記へ、この結末が刻まれる。');
+    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, 'セーブと年代記へ、この結末が刻まれる。');
     $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:17px;color:${win?'var(--ok)':'var(--bad)'}">${endKey}</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">${endingText(endKey)}</div><div class="item" style="margin-top:10px">宙域 ${my} / 正統性 ${n.leg} / 信用 ${n.credit} / 戦意 ${n.war} / 軍圧 ${n.pressure}</div><div class="g2" style="margin-top:10px"><button class="btn" onclick="saveGame('quick');closeModal()">セーブ</button><button class="btn g" onclick="location.reload()">タイトルへ</button></div>`;
     $('#modal').classList.add('on');
   }
