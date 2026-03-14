@@ -72,7 +72,7 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
 .toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(7,12,24,.97);border:1px solid rgba(120,150,230,.28);font-size:14px;z-index:9000;opacity:0;transition:.35s}
 #deltaFloat{position:fixed;inset:0;pointer-events:none;z-index:9500;overflow:hidden}.dv{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;font-weight:900;letter-spacing:.04em;text-shadow:0 0 12px currentColor,0 2px 8px rgba(0,0,0,.8);white-space:nowrap;animation:dvFly 2.9s ease-out forwards}
 @keyframes dvFly{0%{opacity:0;transform:translateX(-50%) translateY(0) scale(0.7)}12%{opacity:1;transform:translateX(-50%) translateY(-10px) scale(1.12)}70%{opacity:.95;transform:translateX(-50%) translateY(-56px) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(-104px) scale(.85)}}
-#eventOverlay{position:absolute;inset:0;display:none;pointer-events:none;z-index:85;background:rgba(2,7,18,.45);backdrop-filter:blur(2px)}#eventOverlay.on{display:block;animation:overlayFlash 1.8s ease}
+#eventOverlay{position:absolute;inset:0;display:none;pointer-events:none;z-index:85;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.08),transparent 28%),rgba(2,7,18,.54);backdrop-filter:blur(3px)}#eventOverlay.on{display:block;animation:overlayFlash 2.0s ease}
 @keyframes overlayFlash{0%{opacity:0}10%{opacity:1}85%{opacity:1}100%{opacity:0}}
 .eventCard{position:absolute;left:18px;right:18px;top:16%;padding:16px;border-radius:22px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(180deg,rgba(12,20,42,.96),rgba(9,16,33,.96));box-shadow:0 0 32px rgba(0,0,0,.58)}
 .eventCard.emp{box-shadow:0 0 32px rgba(214,174,83,.22)} .eventCard.fed{box-shadow:0 0 32px rgba(103,182,239,.22)} .eventCard.cult{box-shadow:0 0 32px rgba(177,118,255,.22)} .eventCard.corp{box-shadow:0 0 32px rgba(111,223,202,.22)} .eventCard.warn{box-shadow:0 0 36px rgba(239,170,69,.26)}
@@ -80,12 +80,13 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
 #battleOverlay{position:absolute;inset:0;display:none;z-index:90;background:rgba(3,7,16,.78);backdrop-filter:blur(4px)}#battleOverlay.on{display:block}
 #apPrompt{position:absolute;left:10px;right:10px;bottom:84px;z-index:40;padding:11px 13px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(46,58,120,.95),rgba(24,34,80,.95));box-shadow:0 0 18px rgba(100,130,255,.25);display:none}#apPrompt.show{display:block;animation:apPulse 1.5s ease infinite}
 @keyframes apPulse{0%,100%{transform:scale(1);box-shadow:0 0 16px rgba(100,130,255,.25)}50%{transform:scale(1.012);box-shadow:0 0 24px rgba(120,150,255,.42)}}
-.battleGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.forceCol{display:grid;gap:8px}.forceBox{padding:10px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.battleGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.forceCol{display:grid;gap:7px}.forceBox{padding:8px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
 .forceMain{box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 22px rgba(255,255,255,.06)}
 .logBig{font-size:15px;line-height:1.85;color:#e3ebff}
 .commandGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .statusPill{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:12px;background:rgba(255,255,255,.04)}
 .status-routed{color:#ff9b9b;border-color:rgba(255,120,120,.35)} .status-fatigue{color:#ffca81;border-color:rgba(255,197,114,.35)} .status-shaken{color:#ffb9ec;border-color:rgba(255,174,233,.35)} .status-supplyBroken{color:#ffd581;border-color:rgba(255,214,122,.38)} .status-inspired{color:#9dffd0;border-color:rgba(141,255,195,.35)}
+.battleLegend{padding:8px 10px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);font-size:13px;line-height:1.7}.battleLegend b{font-size:14px}.battleBadgeCharge{color:#ff8f8f}.battleBadgeFort{color:#8dc3ff}.battleBadgeFlank{color:#9effcf}
 .startPanel{position:absolute;inset:0;z-index:70;padding:16px;display:grid;align-content:center;gap:12px}
 .bigTitle{font-size:34px;font-weight:900;line-height:1.1;margin-top:10px}
 </style>
@@ -97,7 +98,7 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
     <div class="card">
       <div class="row bet"><span class="badge">シングルHTML</span><span class="badge">統合版 v1.2</span></div>
       <div class="bigTitle">星暦戦記<br><span style="color:var(--emp)">アストラル・クラウン</span></div>
-      <div class="sub" style="margin-top:8px;font-size:17px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。</div>
+      <div class="sub" style="margin-top:8px;font-size:17px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。政策、諜報、内政、記録も削らず残してある。</div>
     </div>
     <div class="card">
       <div class="title" style="font-size:18px">新規ゲーム</div>
@@ -759,7 +760,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
   };
-  emitEvent(ctx.type, `${sec.name} をめぐり、複数艦隊が火線へ雪崩れ込んだ。`, importantSector(targetId)?'warn':own(), 1600, '艦隊戦ののち、包囲圧が足りれば占領戦へ移行する。');
+  emitEvent('会戦開始', `${sec.name} で${ctx.type}。艦隊群が接敵し、砲火が宇宙を裂いた。`, importantSector(targetId)?'warn':own(), 1900, '艦隊戦ののち、包囲圧が足りれば占領戦へ移行する。');
   renderFleetBattle();
 }
 
@@ -894,7 +895,8 @@ function resolveCollapse(){
 }
 
 function fleetSideScore(side){
-  const arr = battleEntries(side).map(x=>x.fleet);
+  const arr = battleEntries(side).map(x=>x.fleet).filter(Boolean);
+  if(!arr.length) return 0;
   const main = arr[0];
   return arr.reduce((a,f)=>a + f.strength*0.5 + f.morale*0.28 + f.supply*0.22,0) + main.strength*0.35 + main.morale*0.18;
 }
@@ -905,7 +907,7 @@ function removeRoutedFromBattle(){
 }
 
 function battleMainCommandsHtml(){
-  return CMDS.map(c=>`<button class="btn sm ${G.battle.playerCmd===c?'':'g'}" onclick="chooseBattleCmd('${c}')">${c}<div style="font-size:10px;opacity:.7">${CMD_TYPE[c]==='charge'?'突撃':CMD_TYPE[c]==='fort'?'陣地':'攪乱'}</div></button>`).join('');
+  return CMDS.map(c=>`<button class="btn sm ${G.battle.playerCmd===c?'':'g'}" onclick="chooseBattleCmd('${c}')">${c}<div style="font-size:10px;opacity:.7">${CMD_TYPE[c]==='charge'?'突撃':CMD_TYPE[c]==='fort'?'迎撃':'揺動'}</div></button>`).join('');
 }
 
 function renderForceColumn(side){
@@ -924,46 +926,56 @@ function renderFleetBattle(){
       <div><div class="title" style="font-size:18px;color:${own()==='emp'?'var(--emp)':'var(--fed)'}">自軍艦隊群</div>${renderForceColumn('atk')}</div>
       <div><div class="title" style="font-size:18px;color:${foe()==='emp'?'var(--emp)':'var(--fed)'}">敵艦隊群</div>${renderForceColumn('def')}</div>
     </div>
-    <div class="item" style="margin-top:10px"><div class="row bet"><div style="font-weight:900;font-size:17px">第${G.battle.round}ラウンド</div><span class="tag warn">敵主攻予測 ${enemyCmd}</span></div><div class="smallHelp" style="margin-top:6px">主攻命令を選び、複数艦隊戦を解決する。支援艦隊の役割が主導権、打撃、補給、包囲へ影響する。</div></div>
-    <div class="commandGrid" style="margin-top:10px">${battleMainCommandsHtml()}</div>
-    <div class="g2" style="margin-top:10px"><button class="btn" onclick="battleRound()">ラウンド解決</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
-    <div class="card" style="margin-top:10px"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>`;
+    <div class="item" style="margin-top:8px"><div class="row bet"><div style="font-weight:900;font-size:17px">第${G.battle.round}ラウンド</div><span class="tag warn">敵主攻予測 ${enemyCmd}</span></div><div class="smallHelp" style="margin-top:5px">主攻命令を選び、複数艦隊戦を解決する。支援艦隊の役割が主導権、打撃、補給、包囲へ影響する。</div></div>
+    <div class="battleLegend" style="margin-top:8px"><b>力関係</b>　<span class="battleBadgeCharge">突撃</span> は <span class="battleBadgeFort">迎撃</span> を崩し、<span class="battleBadgeFort">迎撃</span> は <span class="battleBadgeFlank">揺動</span> を止め、<span class="battleBadgeFlank">揺動</span> は <span class="battleBadgeCharge">突撃</span> をいなす。</div>
+    <div class="commandGrid" style="margin-top:8px">${battleMainCommandsHtml()}</div>
+    <div class="g2" style="margin-top:8px"><button class="btn" onclick="battleRound()">ラウンド解決</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
+    <div class="card" style="margin-top:8px"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-5).join('<br>')}</div></div>`;
   $('#battleOverlay').classList.add('on');
 }
 
 function chooseBattleCmd(cmd){ G.battle.playerCmd = cmd; renderFleetBattle(); }
 
 function battleRound(){
-  if(!G.battle.playerCmd){ toast('主攻命令を選んでください'); return; }
-  const myCmd = G.battle.playerCmd;
-  const enemyCmd = G.battle.aiCmd;
-  const init = resolveInitiative(myCmd, enemyCmd);
-  if(init.atkLead) emitEvent('先手奪取', '自軍が主導権を握った。火線は敵より先に開く。', own(), 1200);
-  else if(init.defLead) emitEvent('敵先制', '敵が火線を先に開き、こちらは受けながら動く。', foe(), 1200);
-  else emitEvent('主導権拮抗', '両軍が正面で噛み合い、決定的な先手は生まれない。', 'warn', 1200);
-  const dmg = resolveDamage(myCmd, enemyCmd, init);
-  applySideDamage('def', dmg.atkToDef, dmg.atkMorDmg, dmg.defSupDmg);
-  applySideDamage('atk', dmg.defToAtk, dmg.defMorDmg, dmg.atkSupDmg);
-  const line = `自軍 ${myCmd} / 敵 ${enemyCmd}。${dmg.matchup==='win'?'読み勝ち。':dmg.matchup==='lose'?'押し負けた。':'正面で拮抗。'} 敵戦力低下 ${dmg.atkToDef}。自軍戦力低下 ${dmg.defToAtk}。`;
-  G.battle.logs.push(line);
-  if(myCmd==='補給線狙い') G.battle.logs.push('自軍の攪乱は敵補給へ深く刺さり、継戦力が鈍った。');
-  if(enemyCmd==='補給線狙い') G.battle.logs.push('敵の攪乱で自軍補給線が乱れ、次ラウンドの重心が軽くなる。');
-  const routed = resolveCollapse();
-  removeRoutedFromBattle();
-  G.battle.logs.push(routed.length ? routed.map(r=>`${r.fleet.name} は ${r.dest.name} へ潰走。`).join(' ') : '戦線はまだ崩れていない。');
-  const atkAlive = battleEntries('atk').length>0;
-  const defAlive = battleEntries('def').length>0;
-  const atkScore = fleetSideScore('atk');
-  const defScore = fleetSideScore('def');
-  const decision = (!atkAlive || !defAlive || G.battle.round>=G.battle.maxRounds);
-  if(decision){
-    finalizeFleetBattle(atkScore, defScore, atkAlive, defAlive);
-    return;
+  try{
+    if(!G.battle || G.battle.mode!=='fleet'){ toast('会戦状態が崩れています'); return; }
+    if(!G.battle.playerCmd){ toast('主攻命令を選んでください'); return; }
+    const myCmd = G.battle.playerCmd;
+    const enemyCmd = G.battle.aiCmd;
+    emitEvent('ラウンド解決', `自軍 ${myCmd} / 敵 ${enemyCmd}。火線が一斉に開く。`, 'warn', 1100, '主導権、損耗、潰走先まで一気に判定する。');
+    const init = resolveInitiative(myCmd, enemyCmd);
+    if(init.atkLead) emitEvent('先手奪取', '自軍が主導権を握った。火線は敵より先に開く。', own(), 1200);
+    else if(init.defLead) emitEvent('敵先制', '敵が火線を先に開き、こちらは受けながら動く。', foe(), 1200);
+    else emitEvent('主導権拮抗', '両軍が正面で噛み合い、決定的な先手は生まれない。', 'warn', 1200);
+    const dmg = resolveDamage(myCmd, enemyCmd, init);
+    applySideDamage('def', dmg.atkToDef, dmg.atkMorDmg, dmg.defSupDmg);
+    applySideDamage('atk', dmg.defToAtk, dmg.defMorDmg, dmg.atkSupDmg);
+    const line = `自軍 ${myCmd} / 敵 ${enemyCmd}。${dmg.matchup==='win'?'読み勝ち。':dmg.matchup==='lose'?'押し負けた。':'正面で拮抗。'} 敵戦力低下 ${dmg.atkToDef}。自軍戦力低下 ${dmg.defToAtk}。`;
+    G.battle.logs.push(line);
+    if(myCmd==='補給線狙い') G.battle.logs.push('自軍の揺動は敵補給へ深く刺さり、継戦力が鈍った。');
+    if(enemyCmd==='補給線狙い') G.battle.logs.push('敵の揺動で自軍補給線が乱れ、次ラウンドの重心が軽くなる。');
+    const routed = resolveCollapse();
+    removeRoutedFromBattle();
+    G.battle.logs.push(routed.length ? routed.map(r=>`${r.fleet.name} は ${r.dest.name} へ潰走。`).join(' ') : '戦線はまだ崩れていない。');
+    const atkAlive = battleEntries('atk').length>0;
+    const defAlive = battleEntries('def').length>0;
+    const decision = (!atkAlive || !defAlive || G.battle.round>=G.battle.maxRounds);
+    const atkScore = atkAlive ? fleetSideScore('atk') : 0;
+    const defScore = defAlive ? fleetSideScore('def') : 0;
+    if(decision){
+      finalizeFleetBattle(atkScore, defScore, atkAlive, defAlive);
+      return;
+    }
+    G.battle.round += 1;
+    G.battle.playerCmd = null;
+    G.battle.aiCmd = aiMainCommand(foe(), sectorById(G.battle.targetId));
+    renderFleetBattle();
+  }catch(err){
+    console.error(err);
+    toast('会戦処理で不具合が発生しました');
+    G.battle.logs.push('会戦処理で乱れが発生。戦況を再描画する。');
+    renderFleetBattle();
   }
-  G.battle.round += 1;
-  G.battle.playerCmd = null;
-  G.battle.aiCmd = aiMainCommand(foe(), sectorById(G.battle.targetId));
-  renderFleetBattle();
 }
 
 function autoBattleToDecision(){
