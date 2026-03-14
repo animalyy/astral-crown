@@ -37,7 +37,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(80,160,255,.8),rgba(214,174,83,.6),rgba(80,160,255,.8),transparent);animation:headerline 4s ease-in-out infinite}
 @keyframes headerline{0%,100%{opacity:.4}50%{opacity:1}}
 .main{position:absolute;left:0;right:0;top:92px;bottom:76px;padding:6px;overflow:hidden;z-index:10}
-.nav{position:absolute;left:0;right:0;bottom:0;min-height:76px;padding:8px 7px calc(8px + var(--safeB));display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:linear-gradient(0deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 -1px 0 rgba(80,160,255,.12),0 -20px 40px rgba(0,0,0,.6)}
+.nav{position:absolute;left:0;right:0;bottom:0;min-height:76px;padding:8px 7px calc(8px + var(--safeB));display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:linear-gradient(0deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 -1px 0 rgba(80,160,255,.12),0 -20px 40px rgba(0,0,0,.6)}
 .nav button{border:1px solid rgba(80,140,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:var(--sub);font-weight:800;font-size:10.2px;line-height:1.2;font-family:var(--fontDisplay);letter-spacing:.06em}
 .nav button.on{background:linear-gradient(180deg,#314483,#1e3061);color:#fff;box-shadow:0 0 0 1px rgba(130,160,255,.25) inset,0 0 18px rgba(84,126,255,.18);text-shadow:0 0 12px rgba(100,200,255,.5)}
 .row{display:flex;align-items:center;gap:8px}.bet{justify-content:space-between}.wrap{flex-wrap:wrap}.f1{flex:1;min-width:0}
@@ -156,12 +156,12 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
           <div class="card"><b>再編</b><span id="vReform">0</span></div>
           <div class="card"><b>危機</b><span id="vDanger">0</span></div>
         </div>
-        <div class="card" style="padding:6px">
+        <div class="card" style="padding:4px 2px 6px">
           
-          <div id="mapWrap" style="min-height:360px"><svg id="mapSvg" viewBox="8 28 406 220" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
+          <div id="mapWrap" style="min-height:374px;margin:0 -2px"><svg id="mapSvg" viewBox="8 28 406 220" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
           <div style="margin-top:3px">
-            <div class="row bet" style="margin-bottom:4px;align-items:flex-start;gap:8px"><div class="f1" style="min-width:0"><div class="sub" id="advice" style="font-size:11.2px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere">-</div></div><button id="nextTurnBtn" class="btn sm emp" style="min-width:86px;flex:0 0 auto" onclick="nextTurn()">次ターン</button></div>
-            <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">セーブ</button></div>
+            <div class="row bet" style="margin:3px 2px 4px;align-items:center;gap:6px"><div class="f1" style="min-width:0"><div class="sub" id="advice" style="font-size:10.6px;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere">-</div></div><button id="nextTurnBtn" class="btn sm emp" style="min-width:82px;flex:0 0 auto" onclick="nextTurn()">次ターン</button></div>
+            <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">記録</button></div>
           </div>
         </div>
         <div class="card"><div class="row wrap" id="recentChoices"></div></div>
@@ -215,8 +215,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <button class="on" data-screen="home" onclick="showScreen('home',this)">司令卓</button>
     <button data-screen="war" onclick="showScreen('war',this)">艦隊府</button>
     <button data-screen="dom" onclick="showScreen('dom',this)">統治府</button>
-    <button data-screen="rec" onclick="showScreen('rec',this)">セーブ</button>
-    <button onclick="openModal('help')">勝利条件</button>
+    <button data-screen="rec" onclick="showScreen('rec',this)">記録</button>
     <button data-screen="set" onclick="showScreen('set',this)">管制</button>
   </nav>
 
