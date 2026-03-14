@@ -18,7 +18,7 @@
   --fontDisplay:"Orbitron", monospace; --fontBody:"Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;margin:0;background:var(--void);color:var(--text);font:16px/1.6 var(--fontBody);overflow:hidden}
+html,body{height:100%;margin:0;background:var(--void);color:var(--text);font:13.6px/1.6 var(--fontBody);overflow:hidden}
 button,input,select{font:inherit}
 body{display:flex;justify-content:center}
 #app{position:relative;width:100%;max-width:470px;height:100dvh;overflow:hidden;background:
@@ -38,19 +38,19 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 @keyframes headerline{0%,100%{opacity:.4}50%{opacity:1}}
 .main{position:absolute;left:0;right:0;top:118px;bottom:76px;padding:10px;overflow:hidden;z-index:10}
 .nav{position:absolute;left:0;right:0;bottom:0;min-height:76px;padding:8px 7px calc(8px + var(--safeB));display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:linear-gradient(0deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 -1px 0 rgba(80,160,255,.12),0 -20px 40px rgba(0,0,0,.6)}
-.nav button{border:1px solid rgba(80,140,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:var(--sub);font-weight:800;font-size:12px;line-height:1.2;font-family:var(--fontDisplay);letter-spacing:.06em}
+.nav button{border:1px solid rgba(80,140,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:var(--sub);font-weight:800;font-size:10.2px;line-height:1.2;font-family:var(--fontDisplay);letter-spacing:.06em}
 .nav button.on{background:linear-gradient(180deg,#314483,#1e3061);color:#fff;box-shadow:0 0 0 1px rgba(130,160,255,.25) inset,0 0 18px rgba(84,126,255,.18);text-shadow:0 0 12px rgba(100,200,255,.5)}
 .row{display:flex;align-items:center;gap:8px}.bet{justify-content:space-between}.wrap{flex-wrap:wrap}.f1{flex:1;min-width:0}
-.title{font-size:20px;font-weight:900;letter-spacing:.06em;font-family:var(--fontDisplay);color:var(--text)}.sub{color:var(--sub);line-break:strict;word-break:keep-all}.muted{color:var(--muted)}.mono{font-variant-numeric:tabular-nums;font-family:var(--fontDisplay);letter-spacing:.05em}
-.badge,.tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-size:12px;color:var(--sub);font-family:var(--fontDisplay);letter-spacing:.04em}
+.title{font-size:17px;font-weight:900;letter-spacing:.06em;font-family:var(--fontDisplay);color:var(--text)}.sub{color:var(--sub);line-break:strict;word-break:keep-all}.muted{color:var(--muted)}.mono{font-variant-numeric:tabular-nums;font-family:var(--fontDisplay);letter-spacing:.05em}
+.badge,.tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-size:10.2px;color:var(--sub);font-family:var(--fontDisplay);letter-spacing:.04em}
 .tag.emp{color:var(--emp);border-color:rgba(214,174,83,.35);box-shadow:0 0 10px rgba(214,174,83,.12)} .tag.fed{color:var(--fed);border-color:rgba(103,182,239,.35);box-shadow:0 0 10px rgba(103,182,239,.12)}
 .tag.ok{color:var(--ok);border-color:rgba(87,207,131,.3)} .tag.warn{color:var(--warn);border-color:rgba(239,170,69,.3)} .tag.bad{color:var(--bad);border-color:rgba(223,98,98,.3)}
 .tag.cult{color:var(--cult);border-color:rgba(177,118,255,.35)} .tag.corp{color:var(--corp);border-color:rgba(111,223,202,.35)}
-.hud{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.stat{position:relative;padding:7px 8px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);overflow:hidden}.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.45),transparent)}.stat b{display:block;font-size:10px;color:var(--sub);font-weight:800;font-family:var(--fontDisplay);letter-spacing:.08em}.stat span{display:block;font-weight:900;font-size:18px;font-family:var(--fontDisplay)}
+.hud{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.stat{position:relative;padding:7px 8px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);overflow:hidden}.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.45),transparent)}.stat b{display:block;font-size:8.5px;color:var(--sub);font-weight:800;font-family:var(--fontDisplay);letter-spacing:.08em}.stat span{display:block;font-weight:900;font-size:15.3px;font-family:var(--fontDisplay)}
 .screen{display:none;height:100%}.screen.on{display:block}.stack{display:grid;gap:8px;height:100%}.stack.home{grid-template-rows:auto auto 1fr auto}.stack.tall{grid-template-rows:auto 1fr auto}.stack.dom{grid-template-rows:auto auto 1fr}
 .card{position:relative;padding:12px;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(4px);box-shadow:0 2px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06)}
 .card::before{content:"";position:absolute;top:0;left:12px;right:12px;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.28),transparent)}
-.banner{padding:12px 13px;border-radius:15px;background:linear-gradient(90deg,rgba(214,174,83,.13),rgba(103,182,239,.10));border:1px solid rgba(255,255,255,.09);font-size:17px;line-height:1.7;position:relative;overflow:hidden}.banner::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(214,174,83,.35),transparent)}
+.banner{padding:12px 13px;border-radius:15px;background:linear-gradient(90deg,rgba(214,174,83,.13),rgba(103,182,239,.10));border:1px solid rgba(255,255,255,.09);font-size:14.4px;line-height:1.7;position:relative;overflow:hidden}.banner::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(214,174,83,.35),transparent)}
 .btn{position:relative;min-height:42px;padding:9px 11px;border:none;border-radius:14px;font-weight:900;color:#fff;background:linear-gradient(180deg,#314483,#1d2f60);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 18px rgba(74,116,255,.12);transition:transform .08s ease, box-shadow .18s ease, filter .18s ease;font-family:var(--fontDisplay);letter-spacing:.06em}
 .btn::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;opacity:0;box-shadow:0 0 18px rgba(120,150,255,.35)}
 .btn.pulse{animation:btnPulse 1.15s ease-in-out infinite}
@@ -58,18 +58,18 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .btn:active{transform:scale(.975);filter:brightness(1.08)}
 .btn:active::after{opacity:1}
 .btn.g{background:rgba(255,255,255,.06)} .btn.emp{background:linear-gradient(180deg,#786027,#5e4717);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 22px var(--empGlow);text-shadow:0 0 12px rgba(255,220,120,.45)} .btn.warn{background:linear-gradient(180deg,#8d4326,#642d17)} .btn.cult{background:linear-gradient(180deg,#6f3eb3,#4c2677)} .btn.corp{background:linear-gradient(180deg,#1f7066,#0d4e48)}
-.btn.sm{min-height:34px;padding:6px 8px;font-size:13px;border-radius:12px}
+.btn.sm{min-height:34px;padding:6px 8px;font-size:11px;border-radius:12px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.list{display:grid;gap:8px}.scroll{overflow:auto;min-height:0}
 .scroll::-webkit-scrollbar{width:4px;height:4px}.scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:999px}
 .item{padding:10px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
 .port{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-weight:900;background:linear-gradient(160deg,#30427a,#1f2f5b);border:1px solid rgba(255,255,255,.1)}
 .bar{height:9px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.bar>span{display:block;height:100%;border-radius:999px}.bar.ok>span{background:linear-gradient(90deg,#3ebf71,#60df95)}.bar.warn>span{background:linear-gradient(90deg,#dc8839,#f0b05a)}.bar.bad>span{background:linear-gradient(90deg,#cc4b4b,#f07070)}.bar.blue>span{background:linear-gradient(90deg,#428dd7,#6ec7ff)}.bar.cult>span{background:linear-gradient(90deg,#8d54e3,#c186ff)}.bar.corp>span{background:linear-gradient(90deg,#49c5b0,#8ff3df)}
-.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.kpi .card{padding:8px}.kpi b{display:block;font-size:11px;color:var(--sub)}.kpi span{font-size:18px;font-weight:900}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.kpi .card{padding:8px}.kpi b{display:block;font-size:9.3px;color:var(--sub)}.kpi span{font-size:15.3px;font-weight:900}
 #mapWrap{position:relative;border-radius:16px;overflow:visible;background:radial-gradient(circle at 50% 50%,rgba(100,120,220,.10),transparent 38%),linear-gradient(180deg,#050d1a,#0d1731);border:1px solid rgba(40,80,180,.25);box-shadow:inset 0 0 40px rgba(0,20,80,.5);margin:0 -2px;padding:2px}
 #mapSvg{width:100%;height:auto;display:block;border-radius:16px;overflow:visible}.link{stroke:#4660a0;stroke-opacity:.55;stroke-width:2}.link.hot{stroke:#d6ae53;stroke-opacity:.9;stroke-dasharray:5 4;animation:dashmove 1.6s linear infinite}@keyframes dashmove{to{stroke-dashoffset:-20}}
 .sectorCore{cursor:pointer;transition:filter .15s ease,transform .15s ease}.sectorCore.emp{fill:#3a2f10;stroke:#d6ae53}.sectorCore.fed{fill:#12304b;stroke:#67b6ef}.sectorCore.neu{fill:#25365c;stroke:#8090bc}.sectorCore.core{stroke-width:3}.sectorCore.trade{filter:drop-shadow(0 0 8px rgba(90,255,220,.22))}.sectorCore.fort{filter:drop-shadow(0 0 8px rgba(214,174,83,.20))}.sectorCore.hazard{filter:drop-shadow(0 0 10px rgba(220,90,160,.18))}.sectorCore.focus{animation:sectorPulse 1.7s infinite}
 @keyframes sectorPulse{0%,100%{filter:drop-shadow(0 0 4px rgba(255,255,255,.15))}50%{filter:drop-shadow(0 0 13px rgba(255,255,255,.55))}}
-.sectorLabel{font-size:11px;fill:#ebf0ff;font-weight:800;text-anchor:middle;pointer-events:none}.sectorSub{font-size:9px;fill:#a8bbe7;text-anchor:middle;pointer-events:none}.miniMapLegend{position:absolute;right:8px;top:8px;display:grid;gap:4px;z-index:2}
+.sectorLabel{font-size:9.3px;fill:#ebf0ff;font-weight:800;text-anchor:middle;pointer-events:none}.sectorSub{font-size:7.6px;fill:#a8bbe7;text-anchor:middle;pointer-events:none}.miniMapLegend{position:absolute;right:8px;top:8px;display:grid;gap:4px;z-index:2}
 .pop,.ov{position:absolute;inset:0;display:none;z-index:60}.pop.on,.ov.on{display:block}.dim{position:absolute;inset:0;background:rgba(0,0,0,.62);z-index:0}
 .panel{position:absolute;left:0;right:0;bottom:0;max-width:470px;margin:0 auto;max-height:88dvh;overflow:auto;background:linear-gradient(180deg,#121e44,#0c1631);border:1px solid rgba(255,255,255,.09);border-top-left-radius:24px;border-top-right-radius:24px;padding:15px 13px calc(18px + var(--safeB));z-index:1}
 .ov .panel{top:0;bottom:0;border-radius:0;max-height:none;padding-top:calc(12px + var(--safeT))}
@@ -78,11 +78,11 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .heroMini.fed{background:radial-gradient(circle at 20% 24%,rgba(180,235,255,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(130,220,255,.10),transparent 14%),linear-gradient(135deg,#0b1f34,#143c68 45%,#131f44)}
 .heroMini.cult{background:radial-gradient(circle at 20% 24%,rgba(225,180,255,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(190,140,255,.10),transparent 14%),linear-gradient(135deg,#181028,#4a2670 48%,#110d21)}
 .heroMini.corp{background:radial-gradient(circle at 20% 24%,rgba(180,255,240,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(140,255,220,.10),transparent 14%),linear-gradient(135deg,#092220,#0d5248 48%,#0d1a29)}
-.heroMiniInner{padding:11px 13px;text-align:left}.heroMiniTitle{font-size:16px;font-weight:900;text-align:left}.heroMiniText{font-size:15px;line-height:1.75;color:#dce7ff;margin-top:8px;text-align:left}.smallHelp{font-size:13px;line-height:1.8;color:#b5c6ec;text-align:left}
-.chronicle{font-size:14px;padding:9px 10px;border-radius:11px;background:rgba(255,255,255,.03);border-left:3px solid rgba(140,170,255,.35)}
-.choiceChip{padding:7px 9px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px}
-.toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(7,12,24,.97);border:1px solid rgba(120,150,230,.28);font-size:14px;z-index:9000;opacity:0;transition:.35s}
-#deltaFloat{position:fixed;inset:0;pointer-events:none;z-index:9500;overflow:hidden}.dv{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;font-weight:900;letter-spacing:.04em;text-shadow:0 0 12px currentColor,0 2px 8px rgba(0,0,0,.8);white-space:nowrap;animation:dvFly 2.9s ease-out forwards}
+.heroMiniInner{padding:11px 13px;text-align:left}.heroMiniTitle{font-size:13.6px;font-weight:900;text-align:left}.heroMiniText{font-size:12.8px;line-height:1.75;color:#dce7ff;margin-top:8px;text-align:left}.smallHelp{font-size:11px;line-height:1.8;color:#b5c6ec;text-align:left}
+.chronicle{font-size:11.9px;padding:9px 10px;border-radius:11px;background:rgba(255,255,255,.03);border-left:3px solid rgba(140,170,255,.35)}
+.choiceChip{padding:7px 9px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:11px}
+.toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(7,12,24,.97);border:1px solid rgba(120,150,230,.28);font-size:11.9px;z-index:9000;opacity:0;transition:.35s}
+#deltaFloat{position:fixed;inset:0;pointer-events:none;z-index:9500;overflow:hidden}.dv{position:absolute;left:50%;transform:translateX(-50%);font-size:20.4px;font-weight:900;letter-spacing:.04em;text-shadow:0 0 12px currentColor,0 2px 8px rgba(0,0,0,.8);white-space:nowrap;animation:dvFly 2.9s ease-out forwards}
 @keyframes dvFly{0%{opacity:0;transform:translateX(-50%) translateY(0) scale(0.7)}12%{opacity:1;transform:translateX(-50%) translateY(-10px) scale(1.12)}70%{opacity:.95;transform:translateX(-50%) translateY(-56px) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(-104px) scale(.85)}}
 #eventOverlay{position:absolute;inset:0;display:none;pointer-events:none;z-index:85;background:rgba(0,0,0,.96);backdrop-filter:blur(3px) saturate(1.25)}#eventOverlay.on{display:block;animation:overlayFlash 1.5s ease}
 @keyframes overlayFlash{0%{opacity:0}10%{opacity:1}100%{opacity:1}}
@@ -91,21 +91,21 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 @keyframes eventRise{0%{opacity:0;transform:scale(.82) translateY(26px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 @keyframes eventPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
 
-.eventTitle{font-size:46px;font-weight:900;line-height:1.06;margin-bottom:10px;letter-spacing:.12em;text-shadow:0 0 18px currentColor,0 0 42px currentColor,0 0 72px currentColor}.eventCard.emp .eventTitle{color:#fff26d}.eventCard.fed .eventTitle{color:#89ffff}.eventCard.cult .eventTitle{color:#ef96ff}.eventCard.corp .eventTitle{color:#8dffca}.eventCard.warn .eventTitle{color:#ff8f63}.eventBody{font-size:24px;line-height:1.58;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.28);text-align:left;padding:0 6px;max-width:92%;margin:0 auto}.eventSmall{font-size:15px;color:#e7eeff;margin-top:12px;text-shadow:0 0 8px rgba(255,255,255,.18);text-align:left;padding:0 6px;max-width:92%;margin-left:auto;margin-right:auto}
+.eventTitle{font-size:39.1px;font-weight:900;line-height:1.06;margin-bottom:10px;letter-spacing:.12em;text-shadow:0 0 18px currentColor,0 0 42px currentColor,0 0 72px currentColor}.eventCard.emp .eventTitle{color:#fff26d}.eventCard.fed .eventTitle{color:#89ffff}.eventCard.cult .eventTitle{color:#ef96ff}.eventCard.corp .eventTitle{color:#8dffca}.eventCard.warn .eventTitle{color:#ff8f63}.eventBody{font-size:20.4px;line-height:1.58;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.28);text-align:left;padding:0 6px;max-width:92%;margin:0 auto}.eventSmall{font-size:12.8px;color:#e7eeff;margin-top:12px;text-shadow:0 0 8px rgba(255,255,255,.18);text-align:left;padding:0 6px;max-width:92%;margin-left:auto;margin-right:auto}
 #battleOverlay{position:absolute;inset:0;display:none;z-index:90;background:rgba(3,7,16,.78);backdrop-filter:blur(4px)}#battleOverlay.on{display:block}
 #apPrompt{position:absolute;left:10px;right:10px;bottom:84px;z-index:40;padding:11px 13px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(46,58,120,.95),rgba(24,34,80,.95));box-shadow:0 0 18px rgba(100,130,255,.25);display:none}#apPrompt.show{display:block;animation:apPulse 1.5s ease infinite}
 @keyframes apPulse{0%,100%{transform:scale(1);box-shadow:0 0 16px rgba(100,130,255,.25)}50%{transform:scale(1.012);box-shadow:0 0 24px rgba(120,150,255,.42)}}
 .battleGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.forceCol{display:grid;gap:7px}.forceBox{padding:8px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
 .forceMain{box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 22px rgba(255,255,255,.06)}
-.logBig{font-size:15px;line-height:1.82;color:#e3ebff;text-align:left;word-break:keep-all}
+.logBig{font-size:12.8px;line-height:1.82;color:#e3ebff;text-align:left;word-break:keep-all}
 .commandGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.statusPill{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:12px;background:rgba(255,255,255,.04)}
+.statusPill{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:10.2px;background:rgba(255,255,255,.04)}
 .status-routed{color:#ff9b9b;border-color:rgba(255,120,120,.35)} .status-fatigue{color:#ffca81;border-color:rgba(255,197,114,.35)} .status-shaken{color:#ffb9ec;border-color:rgba(255,174,233,.35)} .status-supplyBroken{color:#ffd581;border-color:rgba(255,214,122,.38)} .status-inspired{color:#9dffd0;border-color:rgba(141,255,195,.35)}
-.battleLegend{padding:10px 12px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);font-size:13px;line-height:1.8;text-align:left}.battleLegend b{font-size:14px;display:block;margin-bottom:2px}.battleBadgeCharge{color:#ff8f8f}.battleBadgeFort{color:#8dc3ff}.battleBadgeFlank{color:#9effcf}
+.battleLegend{padding:10px 12px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);font-size:11px;line-height:1.8;text-align:left}.battleLegend b{font-size:11.9px;display:block;margin-bottom:2px}.battleBadgeCharge{color:#ff8f8f}.battleBadgeFort{color:#8dc3ff}.battleBadgeFlank{color:#9effcf}
 
-.battleSection{display:grid;gap:8px}.battleHeaderRow{display:grid;gap:6px}.battleMeta{display:grid;gap:4px;text-align:left}.battleMeta .title{font-size:22px}.battleSubline{font-size:14px;color:var(--sub);text-align:left}.battleExecRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.battleLogCard .title,.battleInfoCard .title{text-align:left}.battleInfoCard .smallHelp{margin-top:4px}.forceSideTitle{text-align:left;font-size:17px;font-weight:900;margin-bottom:4px}
+.battleSection{display:grid;gap:8px}.battleHeaderRow{display:grid;gap:6px}.battleMeta{display:grid;gap:4px;text-align:left}.battleMeta .title{font-size:18.7px}.battleSubline{font-size:11.9px;color:var(--sub);text-align:left}.battleExecRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.battleLogCard .title,.battleInfoCard .title{text-align:left}.battleInfoCard .smallHelp{margin-top:4px}.forceSideTitle{text-align:left;font-size:14.4px;font-weight:900;margin-bottom:4px}
 .startPanel{position:absolute;inset:0;z-index:70;padding:16px;display:grid;align-content:center;gap:12px}
-.bigTitle{font-size:34px;font-weight:900;line-height:1.1;margin-top:10px}
+.bigTitle{font-size:28.9px;font-weight:900;line-height:1.1;margin-top:10px}
 </style>
 </head>
 <body>
@@ -115,22 +115,22 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <div class="card">
       <div class="row bet"><span class="badge">シングルHTML</span><span class="badge">統合版 v1.2</span></div>
       <div class="bigTitle">星暦戦記<br><span style="color:var(--emp)">アストラル・クラウン</span></div>
-      <div class="sub" style="margin-top:8px;font-size:17px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。政策、諜報、内政、記録も削らず残してある。</div>
+      <div class="sub" style="margin-top:8px;font-size:14.4px">帝国と同盟、教団と企業。12宙域の覇権を争う、一画面銀河戦争。艦隊会戦と占領戦は分離され、敗北艦隊は潰走し、前線の形そのものが変わる。戦略布告、傍受、統治、戦史を統合してある。</div>
     </div>
     <div class="card">
-      <div class="title" style="font-size:18px">新規ゲーム</div>
-      <div class="sub" style="margin:8px 0 10px;font-size:15px">帝国は速攻と統一圧で押し込むが、停滞が腐食を呼ぶ。同盟は民心と制度を守るほど後半が強くなる。</div>
-      <div class="g2"><button class="btn emp" onclick="newGame('emp')">帝国で開始</button><button class="btn" onclick="newGame('fed')">同盟で開始</button></div>
+      <div class="title" style="font-size:15.3px">新規ゲーム</div>
+      <div class="sub" style="margin:8px 0 10px;font-size:12.8px">帝国は速攻と統一圧で押し込むが、停滞が腐食を呼ぶ。同盟は民心と制度を守るほど後半が強くなる。</div>
+      <div class="g2"><button class="btn emp" onclick="newGame('emp')">帝国軍 起動</button><button class="btn" onclick="newGame('fed')">同盟軍 起動</button></div>
     </div>
     <div class="card">
-      <div class="title" style="font-size:18px">読込</div>
-      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('auto')">オート</button><button class="btn sm g" onclick="loadGame('quick')">クイック</button></div>
-      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('m1')">手動1</button><button class="btn sm warn" onclick="wipeAll()">全削除</button></div>
+      <div class="title" style="font-size:15.3px">戦歴呼出</div>
+      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('auto')">自動記録</button><button class="btn sm g" onclick="loadGame('quick')">即時記録</button></div>
+      <div class="g2" style="margin-top:8px"><button class="btn sm g" onclick="loadGame('m1')">星暦記録1</button><button class="btn sm warn" onclick="wipeAll()">全削除</button></div>
     </div>
   </div>
 
   <header id="top" class="top hide">
-    <div class="row bet"><div><div class="title" id="hTitle">-</div><div class="sub mono" id="hSub">-</div></div><div class="row"><span class="badge" id="saveMark">未保存</span><button class="btn sm g" onclick="showScreen('set')">保存</button></div></div>
+    <div class="row bet"><div><div class="title" id="hTitle">-</div><div class="sub mono" id="hSub">-</div></div><div class="row"><span class="badge" id="saveMark">未記録</span><button class="btn sm g" onclick="showScreen('set')">戦史</button></div></div>
     <div class="hud">
       <div class="stat"><b>資金</b><span id="vMoney">0</span></div>
       <div class="stat"><b>戦意</b><span id="vWar">0</span></div>
@@ -151,11 +151,11 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
           <div class="card"><b>危機</b><span id="vDanger">0</span></div>
         </div>
         <div class="card" style="padding:8px">
-          <div class="row bet" style="margin-bottom:6px;justify-content:flex-end"><button class="btn sm g" onclick="openModal('help')">勝敗条件</button></div>
+          <div class="row bet" style="margin-bottom:6px;justify-content:flex-end"><button class="btn sm g" onclick="openModal('help')">戦局規範</button></div>
           <div id="mapWrap"><svg id="mapSvg" viewBox="28 42 364 188" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
           <div style="margin-top:8px">
-            <div class="row bet" style="margin-bottom:8px"><div class="f1"><div class="sub" id="advice">-</div></div><button id="nextTurnBtn" class="btn sm emp" onclick="nextTurn()">次ターン</button></div>
-            <div class="g4"><button class="btn sm" onclick="openPolicies()">政策</button><button class="btn sm g" onclick="openIntel()">諜報</button><button class="btn sm g" onclick="showScreen('war')">軍事</button><button class="btn sm g" onclick="showScreen('rec')">記録</button></div>
+            <div class="row bet" style="margin-bottom:8px"><div class="f1"><div class="sub" id="advice">-</div></div><button id="nextTurnBtn" class="btn sm emp" onclick="nextTurn()">次星暦</button></div>
+            <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">戦史</button></div>
           </div>
         </div>
         <div class="card"><div class="row wrap" id="recentChoices"></div></div>
@@ -164,9 +164,9 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 
     <section id="scr-war" class="screen">
       <div class="stack tall">
-        <div class="card"><div class="row bet"><div class="title" style="font-size:16px">艦隊と前線</div><button class="btn sm g" onclick="openModal('battleHelp')">会戦仕様</button></div><div class="smallHelp" style="margin-top:8px">艦隊戦と占領戦は分離される。敵艦隊を潰走させても、補給と包囲圧が足りなければ宙域は落ちない。敗北艦隊は隣接宙域へ潰走し、次ターンの前線が歪む。</div></div>
+        <div class="card"><div class="row bet"><div class="title" style="font-size:13.6px">艦隊戦列</div><button class="btn sm g" onclick="openModal('battleHelp')">交戦規範</button></div><div class="smallHelp" style="margin-top:8px">艦隊会戦と占領戦は分離される。敵艦隊を潰走させても、補給と包囲圧が足りなければ宙域は落ちない。敗北艦隊は隣接宙域へ潰走し、次星暦の前線が歪む。</div></div>
         <div class="card scroll list" id="fleetList"></div>
-        <div class="card"><div class="sub">複数艦隊戦では主攻と支援の役割が分かれる。蒼穹回廊、自由商港、双星要塞、中枢では3対3の大規模局地戦が起こりうる。</div></div>
+        <div class="card"><div class="sub">複数艦隊会戦では主攻と支援の役割が分かれる。蒼穹回廊、自由商港、双星要塞、中枢では3対3の大規模局地戦が起こりうる。</div></div>
       </div>
     </section>
 
@@ -180,7 +180,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
         </div>
         <div class="card" id="policyMini"></div>
         <div class="card scroll">
-          <div class="row bet" style="margin-bottom:8px"><div class="title" style="font-size:16px">第三勢力</div><span class="tag">可視干渉</span></div>
+          <div class="row bet" style="margin-bottom:8px"><div class="title" style="font-size:13.6px">第三勢力</div><span class="tag">可視干渉</span></div>
           <div class="item" style="margin-bottom:8px"><div class="row bet"><div class="sub">教団浸透度</div><div class="mono" id="vCult">0</div></div><div class="bar cult" style="margin-top:6px"><span id="bCult" style="width:0%"></span></div><div class="sub" style="margin-top:7px" id="cultDesc">-</div></div>
           <div class="item"><div class="row bet"><div class="sub">企業浸透度</div><div class="mono" id="vCorp">0</div></div><div class="bar corp" style="margin-top:6px"><span id="bCorp" style="width:0%"></span></div><div class="sub" style="margin-top:7px" id="corpDesc">-</div></div>
         </div>
@@ -199,31 +199,31 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 
     <section id="scr-set" class="screen">
       <div class="stack home">
-        <div class="card"><div class="title" style="font-size:16px">保存</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">クイック保存</button><button class="btn sm g" onclick="loadGame('quick')">クイック読込</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">手動1 保存</button><button class="btn sm g" onclick="loadGame('m1')">手動1 読込</button></div></div>
-        <div class="card"><div class="sub">オートセーブは行動後と次ターン時に実行されます。</div></div>
+        <div class="card"><div class="title" style="font-size:13.6px">戦史</div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('quick')">即時記録</button><button class="btn sm g" onclick="loadGame('quick')">即時記録戦歴呼出</button></div><div class="g2" style="margin-top:8px"><button class="btn sm" onclick="saveGame('m1')">星暦記録1 戦史</button><button class="btn sm g" onclick="loadGame('m1')">星暦記録1 戦歴呼出</button></div></div>
+        <div class="card"><div class="sub">自動記録セーブは行動後と次星暦時に実行されます。</div></div>
       </div>
     </section>
   </main>
 
   <nav id="nav" class="nav hide">
-    <button class="on" onclick="showScreen('home',this)">総覧</button>
-    <button onclick="showScreen('war',this)">軍事</button>
-    <button onclick="showScreen('dom',this)">内政</button>
-    <button onclick="showScreen('rec',this)">記録</button>
-    <button onclick="showScreen('set',this)">設定</button>
+    <button class="on" onclick="showScreen('home',this)">司令卓</button>
+    <button onclick="showScreen('war',this)">艦隊府</button>
+    <button onclick="showScreen('dom',this)">統治府</button>
+    <button onclick="showScreen('rec',this)">戦史</button>
+    <button onclick="showScreen('set',this)">管制</button>
   </nav>
 
   <div id="modal" class="pop"><div class="dim" onclick="closeModal()"></div><div class="panel" id="modalBody"></div></div>
   <div id="battleOverlay" class="ov"><div class="panel" id="battleBody"></div></div>
   <div id="toast" class="toast"></div><div id="deltaFloat"></div>
   <div id="eventOverlay"><div id="eventCard" class="eventCard"><div class="eventTitle" id="eventTitle">-</div><div class="eventBody" id="eventBody">-</div><div class="eventSmall" id="eventSmall">-</div></div></div>
-  <div id="apPrompt"><div style="font-weight:900;margin-bottom:4px;font-size:17px">行動点が尽きました</div><div class="smallHelp" id="apPromptText">次ターンを押して戦況を進めてください。</div></div>
+  <div id="apPrompt"><div style="font-weight:900;margin-bottom:4px;font-size:14.4px">命令権限が尽きました</div><div class="smallHelp" id="apPromptText">次星暦を進め、星域の推移を見届けてください。</div></div>
 </div>
 <script>
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 const STORE_KEY = "astral_crown_integrated_v1_2";
-const SLOT_NAME = {auto:"オート", quick:"クイック", m1:"手動1"};
+const SLOT_NAME = {auto:"自動記録", quick:"即時記録", m1:"星暦記録1"};
 const SCREEN_ORDER = ["home","war","dom","rec","set"];
 const CMDS = ["中央突破","防御維持","翼包囲","補給線狙い","要塞砲撃","全軍突撃"];
 const CMD_TYPE = {"中央突破":"charge","全軍突撃":"charge","防御維持":"fort","要塞砲撃":"fort","翼包囲":"flank","補給線狙い":"flank"};
@@ -252,14 +252,14 @@ const PEOPLE = [
   {id:"herman",name:"ヘルマン・シュトラウス",fac:"emp",role:"情報総監",atk:1.08,def:1.02,read:0.72,specialty:["翼包囲","補給線狙い"]},
   {id:"ian",name:"イアン・セレス",fac:"fed",role:"同盟第七艦隊司令",atk:1.12,def:1.14,read:0.56,specialty:["防御維持","翼包囲"]},
   {id:"daryl",name:"ダリル・ボイド",fac:"fed",role:"同盟老将",atk:0.94,def:1.26,read:0.40,specialty:["防御維持","補給線狙い"]},
-  {id:"maria",name:"マリア・フェルン",fac:"fed",role:"政策補佐官",atk:0.96,def:1.02,read:0.28,specialty:["補給線狙い"]}
+  {id:"maria",name:"マリア・フェルン",fac:"fed",role:"戦略参謀",atk:0.96,def:1.02,read:0.28,specialty:["補給線狙い"]}
 ];
 const POLICIES = [
-  {id:"reform",name:"制度再編",desc:"国家の骨格を整える。正統性、理念、再編が伸びる。", exec(g){g.nation.leg += 4; g.nation.ideal += 5; g.nation.reform += 4; g.nation.war -= 2; g.nation.credit -= 1; emitEvent("制度再編 発令","国家の骨格が引き締まり、戦時の綻びが一部修復された。","fed",1800); delta("制度再編","正統性+4 理念+5 再編+4 戦意-2 信用-1");}},
-  {id:"prop",name:"戦時宣伝",desc:"戦意を押し上げるが、理念と信用を削る。", exec(g){g.nation.war += 8; g.nation.ideal -= 3; g.nation.credit -= 2; g.nation.pressure += 2; emitEvent("戦時宣伝 開始","戦火を正当化する声が広がり、国家は前へと押し出された。","emp",1700); delta("戦時宣伝","戦意+8 理念-3 信用-2 軍圧+2");}},
-  {id:"supply",name:"補給線再建",desc:"次の会戦を安定させ、艦隊の戦力維持、士気、補給を回復する。", exec(g){if(g.nation.money < 2){toast("資金不足"); return false;} g.nation.money -= 2; g.nation.frontBonus += 14; g.fleets.filter(f=>f.side===g.progress.faction).forEach(f=>{f.strength = clamp(f.strength + 16,0,100); f.morale = clamp(f.morale + 14,0,100); f.supply = clamp(f.supply + 18,0,100); f.status.supplyBroken = 0;}); emitEvent("補給線再建","前線へ燃料と糧秣が流れ始め、艦列はふたたび呼吸を取り戻した。","corp",1700); delta("補給線再建","資金-2 前線補正+14 艦隊回復");}},
-  {id:"appease",name:"属州融和策",desc:"支配宙域の治安、不穏、教団浸透を改善する。", exec(g){if(g.nation.money < 4){toast("資金不足"); return false;} g.nation.money -= 4; g.sectors.forEach(s=>{if(s.owner===g.progress.faction){s.stab=clamp(s.stab+8,0,100); s.unrest=clamp(s.unrest-12,0,100); s.cult=clamp(s.cult-8,0,100);}}); g.nation.leg += 3; emitEvent("辺境宥和指令","怒りの熱はわずかに下がり、教団の囁きは届きにくくなった。", own()==='emp'?'emp':'fed',1700); delta("属州融和策","資金-4 治安+8 不穏-12 教団-8 正統性+3");}},
-  {id:"intel",name:"情報網拡充",desc:"敵の集結地点と意図を読み取りやすくする。", exec(g){if(g.nation.money < 3){toast("資金不足"); return false;} g.nation.money -= 3; g.flags.intel = clamp(g.flags.intel + 2,0,5); g.nation.credit -= 1; emitEvent("情報網拡充","傍受と索敵の線が太くなり、敵の意思が少しだけ輪郭を持つ。", own()==='emp'?'emp':'fed',1700); delta("情報網拡充","資金-3 諜報+2 信用-1");}}
+  {id:"reform",name:"統治再編",desc:"国家の骨格を整える。正統性、理念、再編が伸びる。", exec(g){g.nation.leg += 4; g.nation.ideal += 5; g.nation.reform += 4; g.nation.war -= 2; g.nation.credit -= 1; emitEvent("統治再編 発令","国家の骨格が引き締まり、戦時の綻びが一部修復された。","fed",1800); delta("統治再編","正統性+4 理念+5 再編+4 戦意-2 信用-1");}},
+  {id:"prop",name:"戦意鼓吹",desc:"戦意を押し上げるが、理念と信用を削る。", exec(g){g.nation.war += 8; g.nation.ideal -= 3; g.nation.credit -= 2; g.nation.pressure += 2; emitEvent("戦意鼓吹 開始","戦火を正当化する声が広がり、国家は前へと押し出された。","emp",1700); delta("戦意鼓吹","戦意+8 理念-3 信用-2 軍圧+2");}},
+  {id:"supply",name:"補給網再建",desc:"次の会戦を安定させ、艦隊の戦力維持、士気、補給を回復する。", exec(g){if(g.nation.money < 2){toast("資金不足"); return false;} g.nation.money -= 2; g.nation.frontBonus += 14; g.fleets.filter(f=>f.side===g.progress.faction).forEach(f=>{f.strength = clamp(f.strength + 16,0,100); f.morale = clamp(f.morale + 14,0,100); f.supply = clamp(f.supply + 18,0,100); f.status.supplyBroken = 0;}); emitEvent("補給網再建","前線へ燃料と糧秣が流れ始め、艦列はふたたび呼吸を取り戻した。","corp",1700); delta("補給網再建","資金-2 前線補正+14 艦隊回復");}},
+  {id:"appease",name:"辺境宥和令",desc:"支配宙域の治安、不穏、教団浸透を改善する。", exec(g){if(g.nation.money < 4){toast("資金不足"); return false;} g.nation.money -= 4; g.sectors.forEach(s=>{if(s.owner===g.progress.faction){s.stab=clamp(s.stab+8,0,100); s.unrest=clamp(s.unrest-12,0,100); s.cult=clamp(s.cult-8,0,100);}}); g.nation.leg += 3; emitEvent("辺境宥和指令","怒りの熱はわずかに下がり、教団の囁きは届きにくくなった。", own()==='emp'?'emp':'fed',1700); delta("辺境宥和令","資金-4 治安+8 不穏-12 教団-8 正統性+3");}},
+  {id:"intel",name:"索敵網増強",desc:"敵の集結地点と意図を読み取りやすくする。", exec(g){if(g.nation.money < 3){toast("資金不足"); return false;} g.nation.money -= 3; g.flags.intel = clamp(g.flags.intel + 2,0,5); g.nation.credit -= 1; emitEvent("索敵網増強","傍受と索敵の線が太くなり、敵の意思が少しだけ輪郭を持つ。", own()==='emp'?'emp':'fed',1700); delta("索敵網増強","資金-3 傍受+2 信用-1");}}
 ];
 let G = null;
 let REC_TAB = "cond";
@@ -278,7 +278,7 @@ function ownerName(o){ return o==='emp' ? '帝国' : o==='fed' ? '同盟' : '中
 function importantSector(id){ return [0,5,6,7,11].includes(id); }
 function sectorTypeName(t){ return ({core:'中枢',lane:'回廊',ind:'工業圏',trade:'商港',fort:'要塞',rim:'辺境',gate_hazard:'関門',haz_blackhole:'黒門',haz_asteroid:'乱礫域'})[t] || '宙域'; }
 function loadStore(){ return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); }
-function markDirty(){ if(G){ G.nation.dirty = true; $('#saveMark').textContent = '未保存'; } }
+function markDirty(){ if(G){ G.nation.dirty = true; $('#saveMark').textContent = '未記録'; } }
 function toast(msg){ const t=$('#toast'); t.textContent=msg; t.style.opacity='1'; clearTimeout(t._x); t._x=setTimeout(()=>t.style.opacity='0',2200); }
 function showDelta(lines){ const wrap=$('#deltaFloat'); const vp=window.innerHeight || 700; lines.forEach((item,i)=>{ if(!item || !item.label) return; const val=item.val||0; const el=document.createElement('div'); el.className='dv'; el.style.color = val >= 0 ? '#8dffbe' : '#ff8f8f'; el.style.bottom = (Math.round(vp * 0.34) + i * 40) + 'px'; el.style.left = (28 + Math.random() * 44) + '%'; el.textContent = (val > 0 ? '+' : '') + val + ' ' + item.label; wrap.appendChild(el); setTimeout(()=>el.remove(), 3000); }); }
 function delta(title, body){ if(!G) return; G.nation.headline = title + '。' + body; logc(title + '。' + body); const lines=[]; const re=/([^\s+\-0-9、。,，\u3000]+)([+-]\d+)/g; let m; while((m=re.exec(body))!==null){ lines.push({label:m[1], val:parseInt(m[2],10)}); } if(lines.length) showDelta(lines); }
@@ -324,7 +324,7 @@ function fresh(f){
       makeFleet('ef3','戦略情報群','emp','herman','black','juger','black',2),
       makeFleet('ff1','第七艦隊','fed','ian','meteor','azure','egret',5),
       makeFleet('ff2','第二防衛艦隊','fed','daryl','wall','azure','egret',6),
-      makeFleet('ff3','政策支援艦隊','fed','maria','meteor','azure','egret',7)
+      makeFleet('ff3','政戦支援艦隊','fed','maria','meteor','azure','egret',7)
     ],
     flags:{intel:0,lastIntel:'',corpFavor:0},
     chronicle:['第1ターン ' + (isEmp?'帝国は短期決戦に傾いている。':'同盟は支持率を保ちながら前線を守ろうとしている。')],
@@ -339,7 +339,7 @@ function newGame(f){
   $('#top').classList.remove('hide');
   $('#main').classList.remove('hide');
   $('#nav').classList.remove('hide');
-  emitEvent(f==='emp'?'帝国軍 作戦開始':'同盟軍 作戦開始', f==='emp'?'統一は剣と補給の先にしかない。':'自由は議場だけでなく前線で証明される。', f, 2200, '艦隊戦と占領戦は分離された。勝っても、すぐには落ちない。');
+  emitEvent(f==='emp'?'帝国軍 作戦開始':'同盟軍 作戦開始', f==='emp'?'統一は剣と補給の先にしかない。':'自由は議場だけでなく前線で証明される。', f, 2200, '艦隊会戦と占領戦は分離された。勝っても、すぐには落ちない。');
   renderAll();
   saveGame('auto', true);
 }
@@ -350,23 +350,23 @@ function saveGame(slot, quiet=false){
   const slots = loadStore();
   slots[slot] = deep(G);
   localStorage.setItem(STORE_KEY, JSON.stringify(slots));
-  $('#saveMark').textContent = SLOT_NAME[slot] + '保存済';
-  if(!quiet) toast(SLOT_NAME[slot] + 'に保存');
+  $('#saveMark').textContent = SLOT_NAME[slot] + '記録済';
+  if(!quiet) toast(SLOT_NAME[slot] + 'へ記録');
 }
 
 function loadGame(slot){
   const slots = loadStore();
-  if(!slots[slot]){ toast('保存データがありません'); return; }
+  if(!slots[slot]){ toast('戦歴記録がありません'); return; }
   G = slots[slot];
   $('#start').classList.add('hide');
   $('#top').classList.remove('hide');
   $('#main').classList.remove('hide');
   $('#nav').classList.remove('hide');
   renderAll();
-  toast(SLOT_NAME[slot] + 'を読込');
+  toast(SLOT_NAME[slot] + 'を呼出');
 }
 
-function wipeAll(){ if(confirm('全保存データを削除しますか')){ localStorage.removeItem(STORE_KEY); location.reload(); } }
+function wipeAll(){ if(confirm('全記録データを削除しますか')){ localStorage.removeItem(STORE_KEY); location.reload(); } }
 
 function fleetBaseStats(fl){
   const lib = SHIPS[fl.side];
@@ -427,7 +427,7 @@ function updateApPrompt(){
   const text = $('#apPromptText');
   if(G.nation.ap > 0){ el.classList.remove('show'); return; }
   let reason = 'これ以上の命令は出せない。敵の次手を受ける前に、戦線の呼吸を確かめよ。';
-  if(G.flags.lastIntel) reason = '諜報部は ' + G.flags.lastIntel + ' と報告している。';
+  if(G.flags.lastIntel) reason = '傍受部は ' + G.flags.lastIntel + ' と報告している。';
   text.textContent = reason;
   el.classList.add('show');
 }
@@ -462,17 +462,17 @@ function pickPolicies(){
 
 function adviceText(){
   const n=G.nation, my=ownS().length;
-  if(n.ap>0) return `行動点 ${n.ap}。今ターンは、${G.flags.lastIntel || 'どの宙域を次の戦場にするか'} が論点だ。`;
-  if(n.leg<36) return '正統性が危険域。次ターン以降、内側から崩れる恐れがある。';
+  if(n.ap>0) return `行動点 ${n.ap}。今ターンは、${G.flags.lastIntel || 'どの宙域を次の火線へ変えるか'} が論点だ。`;
+  if(n.leg<36) return '正統性が危険域。次星暦以降、内側から崩れる恐れがある。';
   if(n.credit<28) return '信用が細い。自由商港か工業圏の立て直しが必要だ。';
   if(own()==='emp'){
     if(n.gauge>62) return '帝国は勝つほど腐る。停滞を抑えなければ、征服の果実が毒へ変わる。';
-    if(my>=6) return '支配は広がった。次は蒼穹回廊か双星要塞で大きな会戦を起こせる。';
-    return '序盤は回廊と商港。局地戦で敵艦隊を崩し、包囲圧を作れ。';
+    if(my>=6) return '支配圏は広がった。次は蒼穹回廊か双星要塞で大火線を起こせる。';
+    return '序盤は回廊と商港。局地会戦で敵艦隊を崩し、包囲圧を築け。';
   }
-  if(n.gauge<40) return '支持率が危険。無理な突撃は戦場の前に議場で負ける。';
+  if(n.gauge<40) return '支持率が危うい。無理な突撃は火線の前に政庁で崩れる。';
   if(my>=6) return '前線は繋がり始めた。自由商港と中枢の防衛線を太く保て。';
-  return '同盟は支えるほど強い。複数艦隊戦を焦らず整えよ。';
+  return '同盟は支えるほど強い。複数艦隊会戦を焦らず整えよ。';
 }
 
 function renderMap(){
@@ -501,7 +501,7 @@ function renderWar(){
   $('#fleetList').innerHTML = ownF.map(f=>{
     const st=fleetEffectiveStats(f), c=PEOPLE.find(p=>p.id===f.cmd), sector=sectorById(f.loc);
     const battlePower = Math.round(st.fire*2 + st.armor*1.5 + st.mob + st.link);
-    return `<div class="item"><div class="row bet"><div><div style="font-weight:900;font-size:17px">${f.name}</div><div class="sub">司令官 ${c.name} / 現在地 ${sector.name}</div></div><button class="btn sm g" onclick="editFleet('${f.id}')">編成</button></div>
+    return `<div class="item"><div class="row bet"><div><div style="font-weight:900;font-size:14.4px">${f.name}</div><div class="sub">司令官 ${c.name} / 現在地 ${sector.name}</div></div><button class="btn sm g" onclick="editFleet('${f.id}')">編成</button></div>
       <div class="row wrap" style="gap:6px;margin-top:7px"><span class="tag">総合戦力 ${battlePower}</span><span class="tag">火力 ${Math.round(st.fire)}</span><span class="tag">耐久 ${Math.round(st.armor)}</span><span class="tag">機動 ${Math.round(st.mob)}</span><span class="tag">索敵 ${Math.round(st.scout)}</span><span class="tag">連携 ${Math.round(st.link)}</span></div>
       <div class="row wrap" style="gap:6px;margin-top:7px">${fleetStatusBadges(f) || '<span class="tag">状態 良好</span>'}</div>
       <div style="margin-top:8px" class="smallHelp">前線状態</div>
@@ -514,14 +514,14 @@ function renderWar(){
 
 function renderDomestic(){
   if(!G.policyPool) G.policyPool = pickPolicies();
-  $('#policyMini').innerHTML = `<div class="row bet" style="margin-bottom:8px"><div class="title" style="font-size:16px">政策候補</div><button class="btn sm g" onclick="openPolicies()">選ぶ</button></div><div class="list">${G.policyPool.map(p=>`<div class="item"><div style="font-weight:900">${p.name}</div><div class="sub" style="margin-top:4px">${p.desc}</div></div>`).join('')}</div>`;
+  $('#policyMini').innerHTML = `<div class="row bet" style="margin-bottom:8px"><div class="title" style="font-size:13.6px">布告候補</div><button class="btn sm g" onclick="openPolicies()">発令</button></div><div class="list">${G.policyPool.map(p=>`<div class="item"><div style="font-weight:900">${p.name}</div><div class="sub" style="margin-top:4px">${p.desc}</div></div>`).join('')}</div>`;
 }
 
 function renderRec(){
   $('#recCond').innerHTML = conditionsHtml();
   $('#recLog').innerHTML = G.chronicle.slice().reverse().map(x=>`<div class="chronicle">${x}</div>`).join('');
   $('#recFlags').innerHTML = `
-    <div class="item">諜報強度: ${G.flags.intel}</div>
+    <div class="item">傍受強度: ${G.flags.intel}</div>
     <div class="item">敵予兆: ${G.flags.lastIntel || 'なし'}</div>
     <div class="item">直近選択: ${G.recentChoices.join(' / ') || 'なし'}</div>
     <div class="item">占領進行中宙域: ${G.sectors.filter(s=>s.occupationProgress>0 && s.owner!==own()).map(s=>s.name + ' ' + s.occupationProgress).join(' / ') || 'なし'}</div>`;
@@ -567,7 +567,7 @@ function renderAll(){
   $('#vIdeal').textContent = G.nation.ideal;
   $('#vCult').textContent = G.nation.cultIndex; $('#bCult').style.width = G.nation.cultIndex + '%'; $('#cultDesc').textContent = cultDesc();
   $('#vCorp').textContent = G.nation.corpIndex; $('#bCorp').style.width = G.nation.corpIndex + '%'; $('#corpDesc').textContent = corpDesc();
-  $('#saveMark').textContent = G.nation.dirty ? '未保存' : '保存済';
+  $('#saveMark').textContent = G.nation.dirty ? '未記録' : '記録済';
   $('#headline').textContent = G.nation.headline;
   $('#advice').textContent = adviceText();
   $('#recentChoices').innerHTML = G.recentChoices.length ? G.recentChoices.map(x=>`<span class="choiceChip">${x}</span>`).join('') : '<span class="choiceChip">まだ選択なし</span>';
@@ -581,16 +581,16 @@ function renderAll(){
 }
 
 function openModal(type){
-  if(type==='help') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">勝敗条件</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div>${conditionsHtml()}`;
-  if(type==='battleHelp') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">会戦仕様</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="item logBig">敵艦隊がいる宙域へ進軍すると、まず艦隊戦が発生する。通常宙域は最大2対2、重要宙域は最大3対3。敗北艦隊は隣接宙域へ潰走し、前線の形が変わる。敵を退けたあと、戦力維持、補給、包囲圧が足りていれば占領戦へ移る。勝っても、すぐには落ちない。</div>`;
+  if(type==='help') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">戦局規範</div><button class="btn sm g" onclick="closeModal()">帰投</button></div>${conditionsHtml()}`;
+  if(type==='battleHelp') $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">交戦規範</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">敵艦隊がいる宙域へ侵攻すると、まず艦隊会戦が発生する。通常宙域は最大2対2、重要宙域は最大3対3。敗北艦隊は隣接宙域へ潰走し、前線の形が変わる。敵を退けたあと、戦力維持、補給、包囲圧が足りていれば占領戦へ移る。勝っても、すぐには落ちない。</div>`;
   $('#modal').classList.add('on');
 }
 function closeModal(){ $('#modal').classList.remove('on'); }
 
 function sectorLore(s){
-  if(s.type==='core') return '中枢を揺らせば国家そのものが揺れる。艦隊戦に勝っても、統治の骨はすぐには折れない。';
+  if(s.type==='core') return '中枢を揺らせば国家そのものが揺れる。艦隊会戦に勝っても、統治の骨はすぐには折れない。';
   if(s.type==='trade') return '商港は資金と企業契約の喉首だ。補給線狙いが特に効く。';
-  if(s.type==='fort') return '要塞は艦隊戦だけで落ちない。包囲と継戦が必要になる。';
+  if(s.type==='fort') return '要塞は艦隊会戦だけで落ちない。包囲と継戦が必要になる。';
   if(s.type==='lane') return '回廊は主導権を握る者が勝つ。複数艦隊がぶつかりやすい。';
   if(s.type==='ind') return '工業圏は失うと再建が鈍る。守る価値は数字以上に重い。';
   if(s.type==='haz_blackhole') return '黒門は重い艦隊を嫌う。機動不足はここで露骨に露呈する。';
@@ -608,25 +608,25 @@ function openSector(id){
   const canPacify = G.nation.ap>0 && s.owner===own();
   const canFortify = G.nation.ap>0 && s.owner===own();
   $('#modalBody').innerHTML = `
-    <div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">${s.name}</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div>
+    <div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">${s.name}</div><button class="btn sm g" onclick="closeModal()">帰投</button></div>
     <div class="heroMini ${s.owner==='emp'?'emp':s.owner==='fed'?'fed':(s.cult>s.corp?'cult':'corp')}"><div class="heroMiniInner"><div class="heroMiniTitle">${sectorTypeName(s.type)} / ${ownerName(s.owner)}</div><div class="heroMiniText">${sectorLore(s)}</div></div></div>
     <div class="item" style="margin-top:8px">
       <div class="row wrap" style="gap:6px"><span class="tag ${s.owner==='emp'?'emp':s.owner==='fed'?'fed':''}">${ownerName(s.owner)}</span><span class="tag">治安 ${Math.round(s.stab)}</span><span class="tag">防衛網 ${Math.round(s.defenseNet)}</span><span class="tag">不穏 ${Math.round(s.unrest)}</span><span class="tag">教団 ${Math.round(s.cult)}</span><span class="tag">企業 ${Math.round(s.corp)}</span>${s.occupationProgress>0?`<span class="tag warn">占領進行 ${s.occupationProgress}</span>`:''}</div>
       <div class="sub" style="margin-top:7px">隣接自軍艦隊: ${adjOwn.map(f=>f.name).join(' / ') || 'なし'}</div>
       <div class="sub" style="margin-top:5px">敵駐留艦隊: ${enemyHere.map(f=>f.name).join(' / ') || 'なし'}</div>
     </div>
-    <div class="g2" style="margin-top:8px"><button class="btn ${canInvest?'':'g'}" ${canInvest?'':'disabled'} onclick="investSector(${id})">投資</button><button class="btn ${canPacify?'':'g'}" ${canPacify?'':'disabled'} onclick="pacifySector(${id})">宣撫</button></div>
-    <div class="g2" style="margin-top:8px"><button class="btn ${canFortify?'':'g'}" ${canFortify?'':'disabled'} onclick="fortifySector(${id})">要塞化</button><button class="btn ${canAttack?'':'g'}" ${canAttack?'':'disabled'} onclick="selectAttack(${id})">進軍</button></div>`;
+    <div class="g2" style="margin-top:8px"><button class="btn ${canInvest?'':'g'}" ${canInvest?'':'disabled'} onclick="investSector(${id})">軍需投下</button><button class="btn ${canPacify?'':'g'}" ${canPacify?'':'disabled'} onclick="pacifySector(${id})">懐柔工作</button></div>
+    <div class="g2" style="margin-top:8px"><button class="btn ${canFortify?'':'g'}" ${canFortify?'':'disabled'} onclick="fortifySector(${id})">防衛網増設</button><button class="btn ${canAttack?'':'g'}" ${canAttack?'':'disabled'} onclick="selectAttack(${id})">侵攻</button></div>`;
   $('#modal').classList.add('on');
 }
 
 function spendAP(n=1){ if(G.nation.ap<n){ toast('行動点不足'); return false; } G.nation.ap -= n; return true; }
-function investSector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<3){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=3; s.stab=clamp(s.stab+12,0,100); s.supply=clamp(s.supply+6,0,100); s.corp=clamp(s.corp+6,0,100); s.defenseNet=clamp(s.defenseNet+5,0,100); if(s.type==='trade' || s.type==='ind') G.nation.credit += 1; recentChoice('投資:' + s.name); emitEvent('後方整備 実施', `${s.name} の防衛網と補給路が引き締まり、前線へ余力が戻った。`, own(), 1700); delta(s.name + ' へ投資した','資金-3 治安+12 補給+6'); closeModal(); postAction(); }
-function pacifySector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<2){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=2; s.unrest=clamp(s.unrest-18,0,100); s.cult=clamp(s.cult-10,0,100); s.stab=clamp(s.stab+6,0,100); G.nation.leg += 2; recentChoice('宣撫:' + s.name); emitEvent('宥和工作 進行', `${s.name} では怒りの熱が少し下がり、教団の影も薄れた。`, own(), 1700); delta(s.name + ' を宣撫した','資金-2 不穏-18 教団-10 治安+6 正統性+2'); closeModal(); postAction(); }
-function fortifySector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<4){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=4; s.fort=clamp(s.fort+1,0,3); s.defenseNet=clamp(s.defenseNet+10,0,100); s.fleet=clamp(s.fleet+1,0,150); G.nation.credit -= 1; recentChoice('要塞化:' + s.name); emitEvent('防衛線増強', `${s.name} に火線と障壁が張られ、局地戦は長引きやすくなった。`, 'warn', 1700); delta(s.name + ' を要塞化した','資金-4 防衛網+10 戦力+1 信用-1'); closeModal(); postAction(); }
+function investSector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<3){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=3; s.stab=clamp(s.stab+12,0,100); s.supply=clamp(s.supply+6,0,100); s.corp=clamp(s.corp+6,0,100); s.defenseNet=clamp(s.defenseNet+5,0,100); if(s.type==='trade' || s.type==='ind') G.nation.credit += 1; recentChoice('軍需投下:' + s.name); emitEvent('後方整備 実施', `${s.name} の防衛網と補給路が引き締まり、前線へ余力が戻った。`, own(), 1700); delta(s.name + ' へ軍需投下した','資金-3 治安+12 補給+6'); closeModal(); postAction(); }
+function pacifySector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<2){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=2; s.unrest=clamp(s.unrest-18,0,100); s.cult=clamp(s.cult-10,0,100); s.stab=clamp(s.stab+6,0,100); G.nation.leg += 2; recentChoice('懐柔工作:' + s.name); emitEvent('宥和工作 進行', `${s.name} では怒りの熱が少し下がり、教団の影も薄れた。`, own(), 1700); delta(s.name + ' を懐柔工作した','資金-2 不穏-18 教団-10 治安+6 正統性+2'); closeModal(); postAction(); }
+function fortifySector(id){ const s=sectorById(id); if(!spendAP()) return; if(G.nation.money<4){ toast('資金不足'); G.nation.ap+=1; return; } G.nation.money-=4; s.fort=clamp(s.fort+1,0,3); s.defenseNet=clamp(s.defenseNet+10,0,100); s.fleet=clamp(s.fleet+1,0,150); G.nation.credit -= 1; recentChoice('防衛網増設:' + s.name); emitEvent('防衛線増強', `${s.name} に火線と障壁が張られ、局地戦は長引きやすくなった。`, 'warn', 1700); delta(s.name + ' を防衛網増設した','資金-4 防衛網+10 戦力+1 信用-1'); closeModal(); postAction(); }
 
-function openPolicies(){ if(!G.policyPool || !G.policyPool.length) G.policyPool = pickPolicies(); $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">政策</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">国家方針</div><div class="heroMiniText">政策はその場の数字だけでなく、次の局地戦の質を変える。補給か統治か、宣伝か諜報か。選んだ国家の顔が、そのまま戦場へ現れる。</div></div></div><div class="list" style="margin-top:10px">${G.policyPool.map(p=>`<div class="item"><div style="font-weight:900">${p.name}</div><div class="sub" style="margin-top:4px">${p.desc}</div><button class="btn sm" style="margin-top:8px" onclick="applyPolicy('${p.id}')">実行</button></div>`).join('')}</div>`; $('#modal').classList.add('on'); }
-function applyPolicy(id){ if(!spendAP()) return; const p=POLICIES.find(x=>x.id===id); const ok=p.exec(G); if(ok===false){ G.nation.ap+=1; return; } recentChoice('政策:' + p.name); G.policyPool = pickPolicies(); closeModal(); postAction(); }
+function openPolicies(){ if(!G.policyPool || !G.policyPool.length) G.policyPool = pickPolicies(); $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">戦略布告</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">国家方針</div><div class="heroMiniText">戦略布告はその場の数字だけでなく、次の局地戦の質を変える。補給か統治か、宣伝か傍受か。選んだ国家の顔が、そのまま戦場へ現れる。</div></div></div><div class="list" style="margin-top:10px">${G.policyPool.map(p=>`<div class="item"><div style="font-weight:900">${p.name}</div><div class="sub" style="margin-top:4px">${p.desc}</div><button class="btn sm" style="margin-top:8px" onclick="applyPolicy('${p.id}')">実行</button></div>`).join('')}</div>`; $('#modal').classList.add('on'); }
+function applyPolicy(id){ if(!spendAP()) return; const p=POLICIES.find(x=>x.id===id); const ok=p.exec(G); if(ok===false){ G.nation.ap+=1; return; } recentChoice('戦略布告:' + p.name); G.policyPool = pickPolicies(); closeModal(); postAction(); }
 
 function buildIntelForecast(){
   const plan = aiPlan(foe());
@@ -635,11 +635,11 @@ function buildIntelForecast(){
   const target = sectorById(plan.target);
   let txt = `${source.name} 周辺で艦隊集結を確認。${target.name} への侵攻可能性あり。`;
   if(G.flags.intel >= 2){
-    txt = `自軍諜報部報告。${source.name} 周辺で敵艦隊集結。次ターン、${target.name} への侵攻可能性が高い。`;
+    txt = `自軍傍受部報告。${source.name} 周辺で敵艦隊集結。次星暦、${target.name} への侵攻可能性が高い。`;
   }
   if(G.flags.intel >= 4){
     const phrase = foe()==='emp' ? `${target.name} を制せば統一路線が再加速する` : `${target.name} を守れなければ和平の土台が崩れる`;
-    txt = `自軍諜報部報告。${source.name} で敵艦隊の再編を傍受。敵指導部は、${phrase} と発言。${target.name} 方面での局地戦準備が進行中。`;
+    txt = `自軍傍受部報告。${source.name} で敵艦隊の再編を傍受。敵指導部は、${phrase} と発言。${target.name} 方面での局地戦準備が進行中。`;
   }
   G.flags.lastIntel = txt;
   return txt;
@@ -654,14 +654,14 @@ function forecastTargetIds(){
 
 function openIntel(){
   const txt = buildIntelForecast();
-  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">諜報報告</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">敵戦略の予兆</div><div class="heroMiniText">${txt}</div></div></div><div class="item logBig" style="margin-top:10px">情報網拡充を行うほど、報告は具体化する。方面だけの報告から、敵指導部の意図や発言断片まで拾えるようになる。</div>`;
+  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">傍受報告</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">敵戦略の予兆</div><div class="heroMiniText">${txt}</div></div></div><div class="item logBig" style="margin-top:10px">索敵網増強を行うほど、報告は具体化する。方面だけの報告から、敵指導部の意図や発言断片まで拾えるようになる。</div>`;
   $('#modal').classList.add('on');
 }
 
 function editFleet(fid){
   const f = G.fleets.find(x=>x.id===fid), lib = SHIPS[f.side];
   const mk = (slot)=>Object.keys(lib).map(k=>`<button class="btn sm ${f[slot]===k?'':'g'}" onclick="setShip('${fid}','${slot}','${k}')">${lib[k].n}</button>`).join('');
-  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">${f.name} 編成</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div>
+  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">${f.name} 編成</div><button class="btn sm g" onclick="closeModal()">帰投</button></div>
     <div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px">前衛</div><div class="g2">${mk('front')}</div></div>
     <div class="item" style="margin-bottom:8px"><div class="sub" style="margin-bottom:6px">主力</div><div class="g2">${mk('main')}</div></div>
     <div class="item"><div class="sub" style="margin-bottom:6px">支援</div><div class="g2">${mk('support')}</div></div>`;
@@ -672,7 +672,7 @@ function setShip(fid,slot,key){ G.fleets.find(x=>x.id===fid)[slot]=key; markDirt
 function selectAttack(targetId){
   const fleets = fleetsBySide(own()).filter(f=>ADJ[f.loc].includes(targetId) && !f.status.routed);
   const sec = sectorById(targetId);
-  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:18px">進軍艦隊の選択</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name} へ進軍</div><div class="heroMiniText">${importantSector(targetId)?'ここでは最大3対3の大規模局地戦が起こりうる。':'通常宙域では最大2対2の局地戦となる。'} 敵艦隊がいれば、まず艦隊戦。その後、補給と包囲圧が足りれば占領戦へ移る。</div></div></div><div class="list" style="margin-top:10px">${fleets.map(f=>`<div class="item"><div class="row bet"><div><div style="font-weight:900">${f.name}</div><div class="sub">現在地 ${sectorById(f.loc).name} / 戦力維持 ${f.strength} / 士気 ${f.morale} / 補給 ${f.supply}</div></div><button class="btn sm" onclick="prepareCampaignBattle('${f.id}',${targetId})">進軍</button></div></div>`).join('')}</div>`;
+  $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:15.3px">先鋒艦隊の選定</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name} へ侵攻</div><div class="heroMiniText">${importantSector(targetId)?'ここでは最大3対3の大規模局地戦が起こりうる。':'通常宙域では最大2対2の局地戦となる。'} 敵艦隊がいれば、まず艦隊会戦。その後、補給と包囲圧が足りれば占領戦へ移る。</div></div></div><div class="list" style="margin-top:10px">${fleets.map(f=>`<div class="item"><div class="row bet"><div><div style="font-weight:900">${f.name}</div><div class="sub">現在地 ${sectorById(f.loc).name} / 戦力維持 ${f.strength} / 士気 ${f.morale} / 補給 ${f.supply}</div></div><button class="btn sm" onclick="prepareCampaignBattle('${f.id}',${targetId})">侵攻</button></div></div>`).join('')}</div>`;
   $('#modal').classList.add('on');
 }
 
@@ -717,7 +717,7 @@ function buildBattleContext(targetId, forces){
   const sec = sectorById(targetId);
   const mod = sectorBattleModifier(sec);
   const intelEdge = G.flags.intel;
-  const type = sec.type==='fort' ? '要塞攻囲戦' : sec.type==='core' ? '中枢攻略戦' : (forces.atk.length + forces.def.length >= 5 ? '大規模艦隊戦' : forces.atk.length + forces.def.length >= 3 ? '複数艦隊遭遇戦' : '艦隊遭遇戦');
+  const type = sec.type==='fort' ? '要塞攻囲戦' : sec.type==='core' ? '中枢攻略戦' : (forces.atk.length + forces.def.length >= 5 ? '大規模艦隊会戦' : forces.atk.length + forces.def.length >= 3 ? '複数艦隊遭遇戦' : '艦隊遭遇戦');
   return {sector:sec, mod, intelEdge, type};
 }
 
@@ -762,7 +762,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
   const forces = gatherBattleForces(targetId, attackerFleetId);
   if(!forces.atk.length || !forces.atk[0] || !forces.atk[0].fleet){
     G.nation.ap += 1;
-    toast('進軍可能な艦隊を確保できませんでした');
+    toast('侵攻可能な艦隊を確保できませんでした');
     return;
   }
   const ctx = buildBattleContext(targetId, forces);
@@ -772,7 +772,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
   attackMain.consecutiveFrontTurns += 1;
   if(!enemyPresent){
     const occ = prepareOccupationBattle(sec.id, forces.atk, ctx, {kind:'free'});
-    emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1400, 'ここは艦隊戦ではなく、直接の制圧戦だ。', ()=>{ G.battle = occ; renderOccupationBattle(); });
+    emitEvent('鎮圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1400, 'ここは宙域防衛網への直接侵攻だ。', ()=>{ G.battle = occ; renderOccupationBattle(); });
     return;
   }
   const nextBattle = {
@@ -781,7 +781,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
   };
-  emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1500, 'このフラッシュの後に、艦隊戦画面へ切り替わる。', ()=>{ G.battle = nextBattle; renderFleetBattle(); });
+  emitEvent('艦隊会戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1500, 'このフラッシュの後に、艦隊会戦画面へ切り替わる。', ()=>{ G.battle = nextBattle; renderFleetBattle(); });
 }
 
 function battleEntries(side){ return G.battle[side].map(x=>({entry:x, fleet:G.fleets.find(f=>f.id===x.fleetId)})); }
@@ -915,7 +915,7 @@ function resolveCollapse(){
       if(fl.strength >= 70 && fl.morale >= 65 && !allyRouted) fl.status.inspired = clamp(fl.status.inspired + 1, 0, 2);
     });
   });
-  routed.forEach(r=>emitEvent(`${r.fleet.name} 潰走`, `${r.fleet.name} は統制を失い、${r.dest.name} へ後退した。`, 'warn', 1700, '潰走艦隊は次ターン進軍できない。'));
+  routed.forEach(r=>emitEvent(`${r.fleet.name} 潰走`, `${r.fleet.name} は統制を失い、${r.dest.name} へ後退した。`, 'warn', 1700, '潰走艦隊は次星暦侵攻できない。'));
   return routed;
 }
 
@@ -932,13 +932,13 @@ function removeRoutedFromBattle(){
 }
 
 function battleMainCommandsHtml(){
-  return CMDS.map(c=>`<button class="btn sm ${G.battle.playerCmd===c?'':'g'}" onclick="chooseBattleCmd('${c}')">${c}<div style="font-size:10px;opacity:.7">${CMD_TYPE[c]==='charge'?'突撃':CMD_TYPE[c]==='fort'?'迎撃':'揺動'}</div></button>`).join('');
+  return CMDS.map(c=>`<button class="btn sm ${G.battle.playerCmd===c?'':'g'}" onclick="chooseBattleCmd('${c}')">${c}<div style="font-size:8.5px;opacity:.7">${CMD_TYPE[c]==='charge'?'突撃':CMD_TYPE[c]==='fort'?'迎撃':'揺動'}</div></button>`).join('');
 }
 
 function renderForceColumn(side){
   const arr = battleEntries(side);
   const isAtk = side==='atk';
-  return `<div class="forceCol">${arr.map((x,i)=>{ const f=x.fleet; const c=getCmdr(f.id); return `<div class="forceBox ${i===0?'forceMain':''}"><div class="row bet"><div><div style="font-weight:900;font-size:16px">${f.name}</div><div class="sub">${isAtk?'攻撃':'防衛'} / ${x.entry.role} / ${c.name}</div></div><span class="tag ${isAtk?(own()==='emp'?'emp':'fed'):(foe()==='emp'?'emp':'fed')}">${i===0?'主攻':'支援'}</span></div><div class="row wrap" style="gap:6px;margin-top:6px">${fleetStatusBadges(f) || '<span class="tag">状態 良好</span>'}</div><div class="smallHelp" style="margin-top:7px">戦力維持 ${f.strength}</div><div class="bar ok"><span style="width:${f.strength}%"></span></div><div class="smallHelp" style="margin-top:5px">士気 ${f.morale}</div><div class="bar blue"><span style="width:${f.morale}%"></span></div><div class="smallHelp" style="margin-top:5px">補給 ${f.supply}</div><div class="bar warn"><span style="width:${f.supply}%"></span></div></div>`; }).join('')}</div>`;
+  return `<div class="forceCol">${arr.map((x,i)=>{ const f=x.fleet; const c=getCmdr(f.id); return `<div class="forceBox ${i===0?'forceMain':''}"><div class="row bet"><div><div style="font-weight:900;font-size:13.6px">${f.name}</div><div class="sub">${isAtk?'攻撃':'防衛'} / ${x.entry.role} / ${c.name}</div></div><span class="tag ${isAtk?(own()==='emp'?'emp':'fed'):(foe()==='emp'?'emp':'fed')}">${i===0?'主攻':'支援'}</span></div><div class="row wrap" style="gap:6px;margin-top:6px">${fleetStatusBadges(f) || '<span class="tag">状態 良好</span>'}</div><div class="smallHelp" style="margin-top:7px">戦力維持 ${f.strength}</div><div class="bar ok"><span style="width:${f.strength}%"></span></div><div class="smallHelp" style="margin-top:5px">士気 ${f.morale}</div><div class="bar blue"><span style="width:${f.morale}%"></span></div><div class="smallHelp" style="margin-top:5px">補給 ${f.supply}</div><div class="bar warn"><span style="width:${f.supply}%"></span></div></div>`; }).join('')}</div>`;
 }
 
 function renderFleetBattle(){
@@ -946,15 +946,15 @@ function renderFleetBattle(){
   const enemyCmd = G.battle.aiCmd;
   $('#battleBody').innerHTML = `
     <div class="battleSection">
-      <div class="row bet" style="margin-bottom:2px"><div class="title" style="font-size:22px">${G.battle.ctx.type}</div><button class="btn sm g" onclick="closeBattleOverlay()">閉じる</button></div>
+      <div class="row bet" style="margin-bottom:2px"><div class="title" style="font-size:18.7px">${G.battle.ctx.type}</div><button class="btn sm g" onclick="closeBattleOverlay()">帰投</button></div>
       <div class="battleHeaderRow">
         <div class="battleMeta card battleInfoCard">
-          <div class="title" style="font-size:20px">${sec.name}</div>
+          <div class="title" style="font-size:17px">${sec.name}</div>
           <div class="battleSubline">第${G.battle.round}局面 / 全4局面</div>
-          <div class="smallHelp">敵艦隊がこの宙域にいるため、まず艦隊戦を行う。敵を押し崩し、補給と包囲圧が足りた時だけ制圧戦へ移る。</div>
+          <div class="smallHelp">敵艦隊がこの宙域にいるため、まず艦隊会戦を行う。敵を押し崩し、補給と包囲圧が足りた時だけ鎮圧戦へ移る。</div>
         </div>
         <div class="card battleInfoCard">
-          <div class="title" style="font-size:17px">敵主攻予測</div>
+          <div class="title" style="font-size:14.4px">敵主攻予測</div>
           <div class="logBig" style="margin-top:4px">${enemyCmd}</div>
           <div class="smallHelp">ここでの読み合いは、突撃、迎撃、揺動の相性と支援艦隊の役割で決まる。</div>
         </div>
@@ -965,12 +965,12 @@ function renderFleetBattle(){
       </div>
       <div class="battleLegend"><b>力関係</b><span class="battleBadgeCharge">突撃</span> は <span class="battleBadgeFort">迎撃</span> を崩す。<br><span class="battleBadgeFort">迎撃</span> は <span class="battleBadgeFlank">揺動</span> を止める。<br><span class="battleBadgeFlank">揺動</span> は <span class="battleBadgeCharge">突撃</span> をいなす。</div>
       <div class="card battleInfoCard">
-        <div class="title" style="font-size:17px">主攻命令</div>
+        <div class="title" style="font-size:14.4px">主攻命令</div>
         <div class="smallHelp">命令文は左から読む。短く、切れ味を優先する。折り返しで熱が死なないよう、説明は下へ逃がす。</div>
         <div class="commandGrid" style="margin-top:8px">${battleMainCommandsHtml()}</div>
       </div>
       <div class="battleExecRow"><button class="btn pulse" onclick="battleRound()">命令発令</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
-      <div class="card battleLogCard"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>
+      <div class="card battleLogCard"><div class="title" style="font-size:14.4px;margin-bottom:6px">交戦記録</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>
     </div>`;
   $('#battleOverlay').classList.add('on');
 }
@@ -1044,21 +1044,21 @@ function finalizeFleetBattle(atkScore, defScore, atkAlive, defAlive){
   else if(atkScore > defScore + 26){ outcome='勝利'; attackerWon=true; }
   else if(atkScore > defScore + 8){ outcome='優勢確保'; attackerWon=true; }
   else outcome='敗北';
-  G.battle.logs.push(`艦隊戦結果 ${outcome}。`);
+  G.battle.logs.push(`艦隊会戦結果 ${outcome}。`);
   emitEvent(outcome, attackerWon?`${sec.name} 周辺の敵艦隊は押し下げられた。`: `${sec.name} 周辺で自軍は押し返された。`, attackerWon?own():'warn', 1700, attackerWon?'だが、宙域が落ちるとは限らない。':'敗北艦隊は潰走後、立て直しが必要になる。');
   if(attackerWon){
     const survivors = battleEntries('atk').map(x=>x.fleet);
     if(canStartOccupationBattle(sec, survivors)){
       G.battle = prepareOccupationBattle(sec.id, battleEntries('atk').map(x=>x.entry), G.battle.ctx, {kind:'fleetWin', outcome});
-      emitEvent('制圧戦移行', `${sec.name} の艦隊抵抗は崩れた。次は宙域防衛網と統治抵抗を折る。`, 'warn', 1600, 'ここで補給と包囲圧が不足すれば、勝っても落とし切れない。');
+      emitEvent('鎮圧戦移行', `${sec.name} の艦隊抵抗は崩れた。次は宙域防衛網と統治抵抗を折る。`, 'warn', 1600, 'ここで補給と包囲圧が不足すれば、勝っても落とし切れない。');
       renderOccupationBattle();
       return;
     }
     G.nation.battleWins += 1;
     G.nation.pressure += importantSector(sec.id) ? 6 : 4;
-    delta(sec.name + ' で艦隊戦勝利', '軍圧+4 戦意+2');
+    delta(sec.name + ' で艦隊会戦勝利', '軍圧+4 戦意+2');
     G.nation.war += 2;
-    G.nation.headline = `${sec.name} で敵艦隊を押し返したが、補給か包囲圧が足りず制圧戦へ移れなかった。`;
+    G.nation.headline = `${sec.name} で敵艦隊を押し返したが、補給か包囲圧が足りず鎮圧戦へ移れなかった。`;
   } else {
     G.nation.majorDefeats += 1;
     G.nation.war -= 4;
@@ -1103,7 +1103,7 @@ function prepareOccupationBattle(sectorId, atkEntries, ctx, meta){
       }).filter(Boolean)
     : [];
   return {
-    mode:'occupation', targetId:sectorId, step:1, maxSteps:2, ctx, logs:[`${sec.name} で制圧戦を開始。`],
+    mode:'occupation', targetId:sectorId, step:1, maxSteps:2, ctx, logs:[`${sec.name} で鎮圧戦を開始。`],
     survivors: survivors.map(f=>f.id), pressure: computeSiegePressure(sec, survivors), meta,
     playerOccCmd:null
   };
@@ -1113,22 +1113,22 @@ function occupationCommandsHtml(){
   const cmds = [
     ['制圧強行','突破力重視。防衛網へ強く当てるが消耗が増える。'],
     ['包囲締上','補給と包囲圧を重視。長引くが安定する。'],
-    ['宣撫浸透','統治抵抗を弱める。即効性は薄いが中枢と商港で効く。']
+    ['懐柔工作浸透','統治抵抗を弱める。即効性は薄いが中枢と商港で効く。']
   ];
-  return cmds.map(([c,d])=>`<button class="btn sm ${G.battle.playerOccCmd===c?'':'g'}" onclick="chooseOccCmd('${c}')">${c}<div style="font-size:10px;opacity:.7">${d}</div></button>`).join('');
+  return cmds.map(([c,d])=>`<button class="btn sm ${G.battle.playerOccCmd===c?'':'g'}" onclick="chooseOccCmd('${c}')">${c}<div style="font-size:8.5px;opacity:.7">${d}</div></button>`).join('');
 }
 
 function renderOccupationBattle(){
   const sec = sectorById(G.battle.targetId);
   const survivors = G.battle.survivors.map(id=>G.fleets.find(f=>f.id===id));
   $('#battleBody').innerHTML = `
-    <div class="row bet" style="margin-bottom:10px"><div class="title" style="font-size:22px">制圧戦</div><button class="btn sm g" onclick="closeBattleOverlay()">閉じる</button></div>
-    <div class="heroMini corp"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name}</div><div class="heroMiniText">艦隊戦は終わった。ここからは制圧戦だ。宙域防衛網、要塞残存、企業契約、教団扇動、住民不穏を相手に支配を固定する。</div></div></div>
+    <div class="row bet" style="margin-bottom:10px"><div class="title" style="font-size:18.7px">鎮圧戦</div><button class="btn sm g" onclick="closeBattleOverlay()">帰投</button></div>
+    <div class="heroMini corp"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name}</div><div class="heroMiniText">艦隊会戦は終わった。ここからは鎮圧戦だ。宙域防衛網、要塞残存、企業契約、教団扇動、住民不穏を相手に支配を固定する。</div></div></div>
     <div class="item" style="margin-top:10px"><div class="row wrap" style="gap:6px"><span class="tag warn">占領進行 ${sec.occupationProgress}</span><span class="tag">防衛網 ${sec.defenseNet}</span><span class="tag">治安 ${sec.stab}</span><span class="tag">不穏 ${sec.unrest}</span><span class="tag cult">教団 ${sec.cult}</span><span class="tag corp">企業 ${sec.corp}</span><span class="tag ok">包囲圧 ${G.battle.pressure}</span></div></div>
-    <div class="item" style="margin-top:10px"><div style="font-weight:900;font-size:17px">制圧参加艦隊</div><div class="logBig" style="margin-top:6px">${survivors.map(f=>`${f.name} 戦力維持${f.strength} 士気${f.morale} 補給${f.supply}`).join('<br>')}</div></div>
+    <div class="item" style="margin-top:10px"><div style="font-weight:900;font-size:14.4px">制圧参加艦隊</div><div class="logBig" style="margin-top:6px">${survivors.map(f=>`${f.name} 戦力維持${f.strength} 士気${f.morale} 補給${f.supply}`).join('<br>')}</div></div>
     <div class="commandGrid" style="margin-top:10px">${occupationCommandsHtml()}</div>
     <div class="g2" style="margin-top:10px"><button class="btn" onclick="resolveOccupationBattle()">制圧解決</button><button class="btn g" onclick="autoOccupationToDecision()">一気に推移</button></div>
-    <div class="card" style="margin-top:10px"><div class="title" style="font-size:17px;margin-bottom:6px">制圧報告</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>`;
+    <div class="card" style="margin-top:10px"><div class="title" style="font-size:14.4px;margin-bottom:6px">鎮圧記録</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>`;
   $('#battleOverlay').classList.add('on');
 }
 
@@ -1145,7 +1145,7 @@ function resolveOccupationBattle(){
   let resist = sec.defenseNet + sec.stab*0.5 + (sec.type==='fort'?18:0) + (sec.type==='core'?16:0) + (sec.type==='trade'?Math.round(sec.corp*0.18):0) + Math.round(sec.cult*0.12);
   if(G.battle.playerOccCmd==='制圧強行'){ assault += 16; survivors.forEach(f=>{ f.strength = clamp(f.strength-6,0,100); f.morale = clamp(f.morale-4,0,100); }); }
   if(G.battle.playerOccCmd==='包囲締上'){ assault += 8; sec.siegePressure += 10; sec.defenseNet = clamp(sec.defenseNet-6,0,100); }
-  if(G.battle.playerOccCmd==='宣撫浸透'){ assault += 6; resist -= 12; sec.unrest = clamp(sec.unrest+6,0,100); sec.cult = clamp(sec.cult-4,0,100); }
+  if(G.battle.playerOccCmd==='懐柔工作浸透'){ assault += 6; resist -= 12; sec.unrest = clamp(sec.unrest+6,0,100); sec.cult = clamp(sec.cult-4,0,100); }
   const diff = Math.round(assault - resist);
   let result='局地優勢', gain=12;
   if(diff >= 22){ result='完全制圧'; gain = 100 - sec.occupationProgress; }
@@ -1184,7 +1184,7 @@ function resolveOccupationBattle(){
   renderOccupationBattle();
 }
 
-function autoOccupationToDecision(){ while(G.battle && G.battle.mode==='occupation'){ if(!G.battle.playerOccCmd) G.battle.playerOccCmd = ['制圧強行','包囲締上','宣撫浸透'][rnd(3)]; const step=G.battle.step; resolveOccupationBattle(); if(!G.battle || G.battle.mode!=='occupation') break; if(G.battle.step===step) break; } }
+function autoOccupationToDecision(){ while(G.battle && G.battle.mode==='occupation'){ if(!G.battle.playerOccCmd) G.battle.playerOccCmd = ['制圧強行','包囲締上','懐柔工作浸透'][rnd(3)]; const step=G.battle.step; resolveOccupationBattle(); if(!G.battle || G.battle.mode!=='occupation') break; if(G.battle.step===step) break; } }
 
 function closeBattleOverlay(){ $('#battleOverlay').classList.remove('on'); if(G) G.battle = null; }
 
@@ -1273,7 +1273,7 @@ function enemyStrategicTurn(){
   const margin = attack - defense;
   if(margin > 22){
     sec.owner = foe(); sec.occupationProgress = 0; sec.stab = clamp(sec.stab-12,0,100); sec.unrest = clamp(sec.unrest+12,0,100); fleet.loc = sec.id;
-    emitEvent(foe()==='emp'?'帝国軍 侵攻成功':'同盟軍 侵攻成功', `${sec.name} は敵の手へ落ち、前線の形がねじ曲がった。`, foe(), 1500, '敵もまた、複数艦隊戦の果実を拾う。');
+    emitEvent(foe()==='emp'?'帝国軍 侵攻成功':'同盟軍 侵攻成功', `${sec.name} は敵の手へ落ち、前線の形がねじ曲がった。`, foe(), 1500, '敵もまた、複数艦隊会戦の果実を拾う。');
     logc(`${ownerName(foe())}が ${sec.name} を奪取した。`);
   } else if(margin > 5){
     sec.defenseNet = clamp(sec.defenseNet-10,0,100); sec.occupationProgress = clamp(sec.occupationProgress+18,0,100); emitEvent(foe()==='emp'?'帝国軍 制圧進行':'同盟軍 制圧進行', `${sec.name} では敵が防衛網を削り、支配へ圧を蓄積した。`, 'warn', 1500, '次のターン、この宙域は再び戦場になる。');
@@ -1289,7 +1289,7 @@ function nextTurn(){
   G.nation.ap = 3;
   G.nation.frontBonus = 0;
   buildIntelForecast();
-  emitEvent('自軍諜報部報告', G.flags.lastIntel, own(), 2400, '諜報は予測であり、確定ではない。');
+  emitEvent('自軍傍受部報告', G.flags.lastIntel, own(), 2400, '傍受は予測であり、確定ではない。');
   passiveTurn();
   enemyStrategicTurn();
   thirdEvents();
@@ -1316,8 +1316,8 @@ function checkEnd(){
   if(win || lose){
     G.progress.ended = true;
     const endKey = win || lose;
-    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, '記録画面と年代記へこの結末が刻まれる。');
-    $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:20px;color:${win?'var(--ok)':'var(--bad)'}">${endKey}</div><button class="btn sm g" onclick="closeModal()">閉じる</button></div><div class="item logBig">${endingText(endKey)}</div><div class="item" style="margin-top:10px">宙域 ${my} / 正統性 ${n.leg} / 信用 ${n.credit} / 戦意 ${n.war} / 軍圧 ${n.pressure}</div><div class="g2" style="margin-top:10px"><button class="btn" onclick="saveGame('quick');closeModal()">記録</button><button class="btn g" onclick="location.reload()">タイトルへ</button></div>`;
+    emitEvent(endKey, endingText(endKey), win?'ok':'warn', 2600, '戦史と年代記へ、この結末が刻まれる。');
+    $('#modalBody').innerHTML = `<div class="row bet" style="margin-bottom:12px"><div class="title" style="font-size:17px;color:${win?'var(--ok)':'var(--bad)'}">${endKey}</div><button class="btn sm g" onclick="closeModal()">帰投</button></div><div class="item logBig">${endingText(endKey)}</div><div class="item" style="margin-top:10px">宙域 ${my} / 正統性 ${n.leg} / 信用 ${n.credit} / 戦意 ${n.war} / 軍圧 ${n.pressure}</div><div class="g2" style="margin-top:10px"><button class="btn" onclick="saveGame('quick');closeModal()">戦史</button><button class="btn g" onclick="location.reload()">タイトルへ</button></div>`;
     $('#modal').classList.add('on');
   }
 }
@@ -1325,7 +1325,7 @@ function checkEnd(){
 function endingText(k){
   return ({
     '覇権勝利':'銀河図の形を変えた。だが、広がった支配は統治という重みを要求する。',
-    '制度勝利':'戦火の中で国家の骨格を守り抜いた。艦隊戦と統治戦を両方で制した本物の勝利だ。',
+    '制度勝利':'戦火の中で国家の骨格を守り抜いた。艦隊会戦と統治戦を両方で制した本物の勝利だ。',
     '経済覇権':'銃口より契約が重かった。商港を握った国家が銀河の脈を押さえた。',
     '崩壊敗北':'戦場より先に国家の足場が崩れた。正統性なき勝利は存在しない。',
     '財政敗北':'艦隊が残っていても、信用が尽きた国は戦えない。',
