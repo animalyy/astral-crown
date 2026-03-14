@@ -33,10 +33,10 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .star{position:absolute;border-radius:50%;background:#fff;opacity:.55;animation:tw 3.2s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.8;transform:scale(1.35)}}
 .hide{display:none !important}
-.top{position:absolute;left:0;right:0;top:0;min-height:104px;padding:calc(6px + var(--safeT)) 10px 6px;background:linear-gradient(180deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 0 40px rgba(0,40,120,.4),0 1px 0 rgba(80,160,255,.15)}
+.top{position:absolute;left:0;right:0;top:0;min-height:92px;padding:calc(4px + var(--safeT)) 8px 4px;background:linear-gradient(180deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 0 40px rgba(0,40,120,.4),0 1px 0 rgba(80,160,255,.15)}
 .top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(80,160,255,.8),rgba(214,174,83,.6),rgba(80,160,255,.8),transparent);animation:headerline 4s ease-in-out infinite}
 @keyframes headerline{0%,100%{opacity:.4}50%{opacity:1}}
-.main{position:absolute;left:0;right:0;top:104px;bottom:76px;padding:8px;overflow:hidden;z-index:10}
+.main{position:absolute;left:0;right:0;top:92px;bottom:76px;padding:6px;overflow:hidden;z-index:10}
 .nav{position:absolute;left:0;right:0;bottom:0;min-height:76px;padding:8px 7px calc(8px + var(--safeB));display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:linear-gradient(0deg,rgba(2,6,16,.97),rgba(4,12,24,.92));backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08);z-index:25;box-shadow:0 -1px 0 rgba(80,160,255,.12),0 -20px 40px rgba(0,0,0,.6)}
 .nav button{border:1px solid rgba(80,140,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:var(--sub);font-weight:800;font-size:10.2px;line-height:1.2;font-family:var(--fontDisplay);letter-spacing:.06em}
 .nav button.on{background:linear-gradient(180deg,#314483,#1e3061);color:#fff;box-shadow:0 0 0 1px rgba(130,160,255,.25) inset,0 0 18px rgba(84,126,255,.18);text-shadow:0 0 12px rgba(100,200,255,.5)}
@@ -46,7 +46,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
 .tag.emp{color:var(--emp);border-color:rgba(214,174,83,.35);box-shadow:0 0 10px rgba(214,174,83,.12)} .tag.fed{color:var(--fed);border-color:rgba(103,182,239,.35);box-shadow:0 0 10px rgba(103,182,239,.12)}
 .tag.ok{color:var(--ok);border-color:rgba(87,207,131,.3)} .tag.warn{color:var(--warn);border-color:rgba(239,170,69,.3)} .tag.bad{color:var(--bad);border-color:rgba(223,98,98,.3)}
 .tag.cult{color:var(--cult);border-color:rgba(177,118,255,.35)} .tag.corp{color:var(--corp);border-color:rgba(111,223,202,.35)}
-.hud{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}.stat{position:relative;padding:6px 7px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);overflow:hidden}.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.45),transparent)}.stat b{display:block;font-size:8.5px;color:var(--sub);font-weight:800;font-family:var(--fontDisplay);letter-spacing:.08em}.stat span{display:block;font-weight:900;font-size:15.3px;font-family:var(--fontDisplay)}
+.hud{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:4px}.stat{position:relative;padding:5px 6px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);overflow:hidden}.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.45),transparent)}.stat b{display:block;font-size:8.5px;color:var(--sub);font-weight:800;font-family:var(--fontDisplay);letter-spacing:.08em}.stat span{display:block;font-weight:900;font-size:15.3px;font-family:var(--fontDisplay)}
 .screen{display:none;height:100%}.screen.on{display:block}.stack{display:grid;gap:8px;height:100%}.stack.home{grid-template-rows:auto auto 1fr auto}.stack.tall{grid-template-rows:auto 1fr auto}.stack.dom{grid-template-rows:auto auto 1fr}
 .card{position:relative;padding:12px;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(4px);box-shadow:0 2px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06)}
 .card::before{content:"";position:absolute;top:0;left:12px;right:12px;height:1px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.28),transparent)}
@@ -136,7 +136,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
   </div>
 
   <header id="top" class="top hide">
-    <div class="row bet"><div><div class="title" id="hTitle">-</div><div class="sub mono" id="hSub">-</div></div><div class="row"><span class="badge" id="saveMark">未記録</span><button class="btn sm g" onclick="showScreen('set')">戦史</button></div></div>
+    <div class="row bet"><div><div class="title" id="hTitle" style="font-size:13.6px;line-height:1.05">-</div><div class="sub mono" id="hSub" style="margin-top:1px">-</div></div><div class="row"><span class="badge" id="saveMark">未記録</span><button class="btn sm g" onclick="showScreen('set')">戦史</button></div></div>
     <div class="hud">
       <div class="stat"><b>資金</b><span id="vMoney">0</span></div>
       <div class="stat"><b>戦意</b><span id="vWar">0</span></div>
@@ -156,11 +156,11 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
           <div class="card"><b>再編</b><span id="vReform">0</span></div>
           <div class="card"><b>危機</b><span id="vDanger">0</span></div>
         </div>
-        <div class="card" style="padding:8px">
+        <div class="card" style="padding:6px">
           
-          <div id="mapWrap"><svg id="mapSvg" viewBox="24 34 372 206" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
-          <div style="margin-top:5px">
-            <div class="row bet" style="margin-bottom:6px"><div class="f1"><div class="sub" id="advice">-</div></div><button id="nextTurnBtn" class="btn sm emp" onclick="nextTurn()">次星暦</button></div>
+          <div id="mapWrap" style="min-height:360px"><svg id="mapSvg" viewBox="18 28 386 220" aria-label="銀河図"></svg><div class="miniMapLegend"><span class="tag emp">帝国</span><span class="tag fed">同盟</span><span class="tag cult">教団</span><span class="tag corp">企業</span></div></div>
+          <div style="margin-top:3px">
+            <div class="row bet" style="margin-bottom:4px"><div class="f1"><div class="sub" id="advice">-</div></div><button id="nextTurnBtn" class="btn sm emp" onclick="nextTurn()">次星暦</button></div>
             <div class="g4"><button class="btn sm" onclick="openPolicies()">戦略布告</button><button class="btn sm g" onclick="openIntel()">傍受</button><button class="btn sm g" onclick="showScreen('war')">艦隊府</button><button class="btn sm g" onclick="showScreen('rec')">戦史</button></div>
           </div>
         </div>
@@ -216,7 +216,7 @@ linear-gradient(180deg,#030b18 0%,#06101e 50%,#040c1a 100%)}
     <button data-screen="war" onclick="showScreen('war',this)">艦隊府</button>
     <button data-screen="dom" onclick="showScreen('dom',this)">統治府</button>
     <button data-screen="rec" onclick="showScreen('rec',this)">戦史</button>
-    <button onclick="openModal('help')">規範</button>
+    <button onclick="openModal('help')">戦局規範</button>
     <button data-screen="set" onclick="showScreen('set',this)">管制</button>
   </nav>
 
