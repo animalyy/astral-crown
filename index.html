@@ -66,7 +66,7 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
 .heroMini.fed{background:radial-gradient(circle at 20% 24%,rgba(180,235,255,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(130,220,255,.10),transparent 14%),linear-gradient(135deg,#0b1f34,#143c68 45%,#131f44)}
 .heroMini.cult{background:radial-gradient(circle at 20% 24%,rgba(225,180,255,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(190,140,255,.10),transparent 14%),linear-gradient(135deg,#181028,#4a2670 48%,#110d21)}
 .heroMini.corp{background:radial-gradient(circle at 20% 24%,rgba(180,255,240,.16),transparent 18%),radial-gradient(circle at 78% 28%,rgba(140,255,220,.10),transparent 14%),linear-gradient(135deg,#092220,#0d5248 48%,#0d1a29)}
-.heroMiniInner{padding:11px 13px}.heroMiniTitle{font-size:16px;font-weight:900}.heroMiniText{font-size:15px;line-height:1.75;color:#dce7ff;margin-top:8px}.smallHelp{font-size:13px;line-height:1.8;color:#b5c6ec}
+.heroMiniInner{padding:11px 13px;text-align:left}.heroMiniTitle{font-size:16px;font-weight:900;text-align:left}.heroMiniText{font-size:15px;line-height:1.75;color:#dce7ff;margin-top:8px;text-align:left}.smallHelp{font-size:13px;line-height:1.8;color:#b5c6ec;text-align:left}
 .chronicle{font-size:14px;padding:9px 10px;border-radius:11px;background:rgba(255,255,255,.03);border-left:3px solid rgba(140,170,255,.35)}
 .choiceChip{padding:7px 9px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px}
 .toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(7,12,24,.97);border:1px solid rgba(120,150,230,.28);font-size:14px;z-index:9000;opacity:0;transition:.35s}
@@ -79,17 +79,19 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
 @keyframes eventRise{0%{opacity:0;transform:scale(.82) translateY(26px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 @keyframes eventPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
 
-.eventTitle{font-size:46px;font-weight:900;line-height:1.06;margin-bottom:10px;letter-spacing:.12em;text-shadow:0 0 18px currentColor,0 0 42px currentColor,0 0 72px currentColor}.eventCard.emp .eventTitle{color:#fff26d}.eventCard.fed .eventTitle{color:#89ffff}.eventCard.cult .eventTitle{color:#ef96ff}.eventCard.corp .eventTitle{color:#8dffca}.eventCard.warn .eventTitle{color:#ff8f63}.eventBody{font-size:26px;line-height:1.62;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.28)}.eventSmall{font-size:16px;color:#e7eeff;margin-top:12px;text-shadow:0 0 8px rgba(255,255,255,.18)}
+.eventTitle{font-size:46px;font-weight:900;line-height:1.06;margin-bottom:10px;letter-spacing:.12em;text-shadow:0 0 18px currentColor,0 0 42px currentColor,0 0 72px currentColor}.eventCard.emp .eventTitle{color:#fff26d}.eventCard.fed .eventTitle{color:#89ffff}.eventCard.cult .eventTitle{color:#ef96ff}.eventCard.corp .eventTitle{color:#8dffca}.eventCard.warn .eventTitle{color:#ff8f63}.eventBody{font-size:24px;line-height:1.58;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.28);text-align:left;padding:0 6px;max-width:92%;margin:0 auto}.eventSmall{font-size:15px;color:#e7eeff;margin-top:12px;text-shadow:0 0 8px rgba(255,255,255,.18);text-align:left;padding:0 6px;max-width:92%;margin-left:auto;margin-right:auto}
 #battleOverlay{position:absolute;inset:0;display:none;z-index:90;background:rgba(3,7,16,.78);backdrop-filter:blur(4px)}#battleOverlay.on{display:block}
 #apPrompt{position:absolute;left:10px;right:10px;bottom:84px;z-index:40;padding:11px 13px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(46,58,120,.95),rgba(24,34,80,.95));box-shadow:0 0 18px rgba(100,130,255,.25);display:none}#apPrompt.show{display:block;animation:apPulse 1.5s ease infinite}
 @keyframes apPulse{0%,100%{transform:scale(1);box-shadow:0 0 16px rgba(100,130,255,.25)}50%{transform:scale(1.012);box-shadow:0 0 24px rgba(120,150,255,.42)}}
 .battleGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.forceCol{display:grid;gap:7px}.forceBox{padding:8px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
 .forceMain{box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 22px rgba(255,255,255,.06)}
-.logBig{font-size:15px;line-height:1.85;color:#e3ebff}
+.logBig{font-size:15px;line-height:1.82;color:#e3ebff;text-align:left;word-break:keep-all}
 .commandGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .statusPill{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:12px;background:rgba(255,255,255,.04)}
 .status-routed{color:#ff9b9b;border-color:rgba(255,120,120,.35)} .status-fatigue{color:#ffca81;border-color:rgba(255,197,114,.35)} .status-shaken{color:#ffb9ec;border-color:rgba(255,174,233,.35)} .status-supplyBroken{color:#ffd581;border-color:rgba(255,214,122,.38)} .status-inspired{color:#9dffd0;border-color:rgba(141,255,195,.35)}
-.battleLegend{padding:8px 10px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);font-size:13px;line-height:1.7}.battleLegend b{font-size:14px}.battleBadgeCharge{color:#ff8f8f}.battleBadgeFort{color:#8dc3ff}.battleBadgeFlank{color:#9effcf}
+.battleLegend{padding:10px 12px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);font-size:13px;line-height:1.8;text-align:left}.battleLegend b{font-size:14px;display:block;margin-bottom:2px}.battleBadgeCharge{color:#ff8f8f}.battleBadgeFort{color:#8dc3ff}.battleBadgeFlank{color:#9effcf}
+
+.battleSection{display:grid;gap:8px}.battleHeaderRow{display:grid;gap:6px}.battleMeta{display:grid;gap:4px;text-align:left}.battleMeta .title{font-size:22px}.battleSubline{font-size:14px;color:var(--sub);text-align:left}.battleExecRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.battleLogCard .title,.battleInfoCard .title{text-align:left}.battleInfoCard .smallHelp{margin-top:4px}.forceSideTitle{text-align:left;font-size:17px;font-weight:900;margin-bottom:4px}
 .startPanel{position:absolute;inset:0;z-index:70;padding:16px;display:grid;align-content:center;gap:12px}
 .bigTitle{font-size:34px;font-weight:900;line-height:1.1;margin-top:10px}
 </style>
@@ -680,11 +682,10 @@ function gatherBattleForces(targetId, attackerFleetId){
   const max = importantSector(targetId) ? 3 : 2;
   const atkSupport = fleetsBySide(own()).filter(f=>f.id!==attackerFleetId && ADJ[f.loc].includes(targetId) && !f.status.routed)
     .sort((a,b)=>(b.supply+b.morale+b.strength)-(a.supply+a.morale+a.strength)).slice(0, max-1);
-  const defCandidates = fleetsBySide(foe()).filter(f=>(f.loc===targetId || ADJ[f.loc].includes(targetId)) && !f.status.routed)
-    .sort((a,b)=> (a.loc===targetId?50:0) + (b.supply+b.morale+b.strength) < (b.loc===targetId?50:0) + (b.supply+b.morale+b.strength) ? 1 : -1)
-    .slice(0, max);
+  const localDefenders = fleetsBySide(foe()).filter(f=>f.loc===targetId && !f.status.routed)
+    .sort((a,b)=>(b.supply+b.morale+b.strength)-(a.supply+a.morale+a.strength)).slice(0, max);
   const atk = [atkMain, ...atkSupport].map((f,i)=>({fleet:f, role:roleForFleet(f,target.type,i===0)}));
-  const def = defCandidates.map((f,i)=>({fleet:f, role:roleForFleet(f,target.type,i===0)}));
+  const def = localDefenders.map((f,i)=>({fleet:f, role:roleForFleet(f,target.type,i===0)}));
   return {atk, def, max};
 }
 
@@ -749,7 +750,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
   const forces = gatherBattleForces(targetId, attackerFleetId);
   const ctx = buildBattleContext(targetId, forces);
   const sec = ctx.sector;
-  const enemyPresent = forces.def.length > 0 && forces.def.some(x => x.fleet.loc===targetId || x.fleet.side===foe());
+  const enemyPresent = forces.def.length > 0;
   const attackMain = forces.atk[0].fleet;
   attackMain.consecutiveFrontTurns += 1;
   if(!enemyPresent){
@@ -758,7 +759,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
     return;
   }
   const nextBattle = {
-    mode:'fleet', targetId, round:1, maxRounds:3, finished:false, ctx,
+    mode:'fleet', targetId, round:1, maxRounds:4, finished:false, ctx,
     atk:forces.atk.map(x=>({fleetId:x.fleet.id, side:'atk', role:x.role})),
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
@@ -927,20 +928,35 @@ function renderFleetBattle(){
   const sec = sectorById(G.battle.targetId);
   const enemyCmd = G.battle.aiCmd;
   $('#battleBody').innerHTML = `
-    <div class="row bet" style="margin-bottom:10px"><div class="title" style="font-size:22px">${G.battle.ctx.type}</div><button class="btn sm g" onclick="closeBattleOverlay()">閉じる</button></div>
-    <div class="heroMini ${own()}"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name}</div><div class="heroMiniText">まず艦隊戦で敵を崩し、その後、補給と包囲圧が足りれば占領戦へ移る。敗北艦隊は隣接宙域へ潰走し、次の前線を歪める。</div></div></div>
-    <div class="battleGrid" style="margin-top:10px">
-      <div><div class="title" style="font-size:18px;color:${own()==='emp'?'var(--emp)':'var(--fed)'}">自軍艦隊群</div>${renderForceColumn('atk')}</div>
-      <div><div class="title" style="font-size:18px;color:${foe()==='emp'?'var(--emp)':'var(--fed)'}">敵艦隊群</div>${renderForceColumn('def')}</div>
-    </div>
-    <div class="item" style="margin-top:8px"><div class="row bet"><div style="font-weight:900;font-size:17px">第${G.battle.round}ラウンド</div><span class="tag warn">敵主攻予測 ${enemyCmd}</span></div><div class="smallHelp" style="margin-top:5px">主攻命令を選び、命令発令で複数艦隊戦を進める。支援艦隊の役割が主導権、打撃、補給、包囲へ影響する。</div></div>
-    <div class="battleLegend" style="margin-top:8px"><b>力関係</b>　<span class="battleBadgeCharge">突撃</span> は <span class="battleBadgeFort">迎撃</span> を崩し、<span class="battleBadgeFort">迎撃</span> は <span class="battleBadgeFlank">揺動</span> を止め、<span class="battleBadgeFlank">揺動</span> は <span class="battleBadgeCharge">突撃</span> をいなす。</div>
-    <div class="commandGrid" style="margin-top:8px">${battleMainCommandsHtml()}</div>
-    <div class="g2" style="margin-top:8px"><button class="btn pulse" onclick="battleRound()">戦術実行</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
-    <div class="card" style="margin-top:8px"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-5).join('<br>')}</div></div>`;
+    <div class="battleSection">
+      <div class="row bet" style="margin-bottom:2px"><div class="title" style="font-size:22px">${G.battle.ctx.type}</div><button class="btn sm g" onclick="closeBattleOverlay()">閉じる</button></div>
+      <div class="battleHeaderRow">
+        <div class="battleMeta card battleInfoCard">
+          <div class="title" style="font-size:20px">${sec.name}</div>
+          <div class="battleSubline">第${G.battle.round}局面 / 全4局面</div>
+          <div class="smallHelp">敵艦隊がこの宙域にいるため、まず艦隊戦を行う。敵を押し崩し、補給と包囲圧が足りた時だけ制圧戦へ移る。</div>
+        </div>
+        <div class="card battleInfoCard">
+          <div class="title" style="font-size:17px">敵主攻予測</div>
+          <div class="logBig" style="margin-top:4px">${enemyCmd}</div>
+          <div class="smallHelp">ここでの読み合いは、突撃、迎撃、揺動の相性と支援艦隊の役割で決まる。</div>
+        </div>
+      </div>
+      <div class="battleGrid">
+        <div><div class="forceSideTitle" style="color:${own()==='emp'?'var(--emp)':'var(--fed)'}">自軍艦隊群</div>${renderForceColumn('atk')}</div>
+        <div><div class="forceSideTitle" style="color:${foe()==='emp'?'var(--emp)':'var(--fed)'}">敵艦隊群</div>${renderForceColumn('def')}</div>
+      </div>
+      <div class="battleLegend"><b>力関係</b><span class="battleBadgeCharge">突撃</span> は <span class="battleBadgeFort">迎撃</span> を崩す。<br><span class="battleBadgeFort">迎撃</span> は <span class="battleBadgeFlank">揺動</span> を止める。<br><span class="battleBadgeFlank">揺動</span> は <span class="battleBadgeCharge">突撃</span> をいなす。</div>
+      <div class="card battleInfoCard">
+        <div class="title" style="font-size:17px">主攻命令</div>
+        <div class="smallHelp">命令文は左から読む。短く、切れ味を優先する。折り返しで熱が死なないよう、説明は下へ逃がす。</div>
+        <div class="commandGrid" style="margin-top:8px">${battleMainCommandsHtml()}</div>
+      </div>
+      <div class="battleExecRow"><button class="btn pulse" onclick="battleRound()">命令発令</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
+      <div class="card battleLogCard"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-6).join('<br>')}</div></div>
+    </div>`;
   $('#battleOverlay').classList.add('on');
 }
-
 
 function chooseBattleCmd(cmd){ G.battle.playerCmd = cmd; renderFleetBattle(); }
 
@@ -1082,7 +1098,7 @@ function renderOccupationBattle(){
   const survivors = G.battle.survivors.map(id=>G.fleets.find(f=>f.id===id));
   $('#battleBody').innerHTML = `
     <div class="row bet" style="margin-bottom:10px"><div class="title" style="font-size:22px">制圧戦</div><button class="btn sm g" onclick="closeBattleOverlay()">閉じる</button></div>
-    <div class="heroMini corp"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name}</div><div class="heroMiniText">艦隊戦は終わった。次は宙域防衛網、要塞残存、企業契約、教団扇動、住民不穏を相手に支配を固定する段階だ。</div></div></div>
+    <div class="heroMini corp"><div class="heroMiniInner"><div class="heroMiniTitle">${sec.name}</div><div class="heroMiniText">艦隊戦は終わった。ここからは制圧戦だ。宙域防衛網、要塞残存、企業契約、教団扇動、住民不穏を相手に支配を固定する。</div></div></div>
     <div class="item" style="margin-top:10px"><div class="row wrap" style="gap:6px"><span class="tag warn">占領進行 ${sec.occupationProgress}</span><span class="tag">防衛網 ${sec.defenseNet}</span><span class="tag">治安 ${sec.stab}</span><span class="tag">不穏 ${sec.unrest}</span><span class="tag cult">教団 ${sec.cult}</span><span class="tag corp">企業 ${sec.corp}</span><span class="tag ok">包囲圧 ${G.battle.pressure}</span></div></div>
     <div class="item" style="margin-top:10px"><div style="font-weight:900;font-size:17px">制圧参加艦隊</div><div class="logBig" style="margin-top:6px">${survivors.map(f=>`${f.name} 戦力維持${f.strength} 士気${f.morale} 補給${f.supply}`).join('<br>')}</div></div>
     <div class="commandGrid" style="margin-top:10px">${occupationCommandsHtml()}</div>
