@@ -72,10 +72,12 @@ linear-gradient(180deg,#06111f 0%,#0a1530 48%,#08101d 100%)}
 .toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(7,12,24,.97);border:1px solid rgba(120,150,230,.28);font-size:14px;z-index:9000;opacity:0;transition:.35s}
 #deltaFloat{position:fixed;inset:0;pointer-events:none;z-index:9500;overflow:hidden}.dv{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;font-weight:900;letter-spacing:.04em;text-shadow:0 0 12px currentColor,0 2px 8px rgba(0,0,0,.8);white-space:nowrap;animation:dvFly 2.9s ease-out forwards}
 @keyframes dvFly{0%{opacity:0;transform:translateX(-50%) translateY(0) scale(0.7)}12%{opacity:1;transform:translateX(-50%) translateY(-10px) scale(1.12)}70%{opacity:.95;transform:translateX(-50%) translateY(-56px) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(-104px) scale(.85)}}
-#eventOverlay{position:absolute;inset:0;display:none;pointer-events:none;z-index:85;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.08),transparent 28%),rgba(2,7,18,.54);backdrop-filter:blur(3px)}#eventOverlay.on{display:block;animation:overlayFlash 2.0s ease}
-@keyframes overlayFlash{0%{opacity:0}10%{opacity:1}85%{opacity:1}100%{opacity:0}}
-.eventCard{position:absolute;left:18px;right:18px;top:16%;padding:16px;border-radius:22px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(180deg,rgba(12,20,42,.96),rgba(9,16,33,.96));box-shadow:0 0 32px rgba(0,0,0,.58)}
-.eventCard.emp{box-shadow:0 0 32px rgba(214,174,83,.22)} .eventCard.fed{box-shadow:0 0 32px rgba(103,182,239,.22)} .eventCard.cult{box-shadow:0 0 32px rgba(177,118,255,.22)} .eventCard.corp{box-shadow:0 0 32px rgba(111,223,202,.22)} .eventCard.warn{box-shadow:0 0 36px rgba(239,170,69,.26)}
+#eventOverlay{position:absolute;inset:0;display:none;pointer-events:none;z-index:85;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.18),transparent 30%),linear-gradient(180deg,rgba(255,255,255,.10),rgba(2,7,18,.72));backdrop-filter:blur(3px)}#eventOverlay.on{display:block;animation:overlayFlash 1.25s ease}
+@keyframes overlayFlash{0%{opacity:0}8%{opacity:1}18%{opacity:1}100%{opacity:1}}
+.eventCard{position:absolute;left:14px;right:14px;top:13%;padding:18px;border-radius:24px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(12,20,42,.98),rgba(9,16,33,.98));box-shadow:0 0 48px rgba(255,255,255,.10),0 0 32px rgba(0,0,0,.64);transform:scale(.92);animation:eventRise .42s ease forwards}
+.eventCard.emp{box-shadow:0 0 32px rgba(214,174,83,.22)} .eventCard.fed{box-shadow:0 0 32px rgba(103,182,239,.22)} .eventCard.cult{box-shadow:0 0 32px rgba(177,118,255,.22)} .eventCard.corp{box-shadow:0 0 32px rgba(111,223,202,.22)} .eventCard.warn{box-shadow:0 0 52px rgba(239,170,69,.32)}
+@keyframes eventRise{0%{opacity:0;transform:scale(.86) translateY(18px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+
 .eventTitle{font-size:28px;font-weight:900;line-height:1.2;margin-bottom:8px}.eventBody{font-size:19px;line-height:1.8;color:#dce7ff}.eventSmall{font-size:13px;color:#9eb4e6;margin-top:10px}
 #battleOverlay{position:absolute;inset:0;display:none;z-index:90;background:rgba(3,7,16,.78);backdrop-filter:blur(4px)}#battleOverlay.on{display:block}
 #apPrompt{position:absolute;left:10px;right:10px;bottom:84px;z-index:40;padding:11px 13px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(46,58,120,.95),rgba(24,34,80,.95));box-shadow:0 0 18px rgba(100,130,255,.25);display:none}#apPrompt.show{display:block;animation:apPulse 1.5s ease infinite}
@@ -267,7 +269,7 @@ function showDelta(lines){ const wrap=$('#deltaFloat'); const vp=window.innerHei
 function delta(title, body){ if(!G) return; G.nation.headline = title + '。' + body; logc(title + '。' + body); const lines=[]; const re=/([^\s+\-0-9、。,，\u3000]+)([+-]\d+)/g; let m; while((m=re.exec(body))!==null){ lines.push({label:m[1], val:parseInt(m[2],10)}); } if(lines.length) showDelta(lines); }
 function logc(txt){ if(!G) return; G.chronicle.push('第' + G.progress.turn + 'ターン ' + txt); G.chronicle = G.chronicle.slice(-220); }
 function recentChoice(txt){ if(!G) return; G.recentChoices.unshift(txt); G.recentChoices = G.recentChoices.slice(0,6); }
-function emitEvent(title, body, theme='fed', duration=1800, small='状況は銀河図と年代記へ反映される。'){ const overlay=$('#eventOverlay'); const card=$('#eventCard'); $('#eventTitle').textContent = title; $('#eventBody').textContent = body; $('#eventSmall').textContent = small; card.className = 'eventCard ' + theme; overlay.classList.add('on'); clearTimeout(eventTimer); eventTimer = setTimeout(()=>overlay.classList.remove('on'), duration); }
+function emitEvent(title, body, theme='fed', duration=1800, small='状況は銀河図と年代記へ反映される。', after=null){ const overlay=$('#eventOverlay'); const card=$('#eventCard'); $('#eventTitle').textContent = title; $('#eventBody').textContent = body; $('#eventSmall').textContent = small; card.className = 'eventCard ' + theme; overlay.classList.remove('on'); void overlay.offsetWidth; overlay.classList.add('on'); clearTimeout(eventTimer); eventTimer = setTimeout(()=>{ overlay.classList.remove('on'); if(typeof after==='function') after(); }, duration); }
 function buildStars(){ const root=$('#stars'); root.innerHTML=''; for(let i=0;i<78;i++){ const s=document.createElement('div'); s.className='star'; const z=Math.random()<0.18 ? 2 : 1; s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*4}s`; root.appendChild(s); } }
 buildStars();
 
@@ -748,12 +750,8 @@ function prepareCampaignBattle(attackerFleetId, targetId){
   const attackMain = forces.atk[0].fleet;
   attackMain.consecutiveFrontTurns += 1;
   if(!enemyPresent){
-    emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1500, 'ここは艦隊戦ではなく、直接の制圧戦だ。');
     const occ = prepareOccupationBattle(sec.id, forces.atk, ctx, {kind:'free'});
-    setTimeout(()=>{
-      G.battle = occ;
-      renderOccupationBattle();
-    }, 900);
+    emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1400, 'ここは艦隊戦ではなく、直接の制圧戦だ。', ()=>{ G.battle = occ; renderOccupationBattle(); });
     return;
   }
   const nextBattle = {
@@ -762,11 +760,7 @@ function prepareCampaignBattle(attackerFleetId, targetId){
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
   };
-  emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1700, 'このフラッシュの後に、艦隊戦画面へ切り替わる。');
-  setTimeout(()=>{
-    G.battle = nextBattle;
-    renderFleetBattle();
-  }, 950);
+  emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1500, 'このフラッシュの後に、艦隊戦画面へ切り替わる。', ()=>{ G.battle = nextBattle; renderFleetBattle(); });
 }
 
 function battleEntries(side){ return G.battle[side].map(x=>({entry:x, fleet:G.fleets.find(f=>f.id===x.fleetId)})); }
@@ -935,13 +929,14 @@ function renderFleetBattle(){
       <div><div class="title" style="font-size:18px;color:${own()==='emp'?'var(--emp)':'var(--fed)'}">自軍艦隊群</div>${renderForceColumn('atk')}</div>
       <div><div class="title" style="font-size:18px;color:${foe()==='emp'?'var(--emp)':'var(--fed)'}">敵艦隊群</div>${renderForceColumn('def')}</div>
     </div>
-    <div class="item" style="margin-top:8px"><div class="row bet"><div style="font-weight:900;font-size:17px">第${G.battle.round}ラウンド</div><span class="tag warn">敵主攻予測 ${enemyCmd}</span></div><div class="smallHelp" style="margin-top:5px">主攻命令を選び、複数艦隊戦を解決する。支援艦隊の役割が主導権、打撃、補給、包囲へ影響する。</div></div>
+    <div class="item" style="margin-top:8px"><div class="row bet"><div style="font-weight:900;font-size:17px">第${G.battle.round}ラウンド</div><span class="tag warn">敵主攻予測 ${enemyCmd}</span></div><div class="smallHelp" style="margin-top:5px">主攻命令を選び、命令発令で複数艦隊戦を進める。支援艦隊の役割が主導権、打撃、補給、包囲へ影響する。</div></div>
     <div class="battleLegend" style="margin-top:8px"><b>力関係</b>　<span class="battleBadgeCharge">突撃</span> は <span class="battleBadgeFort">迎撃</span> を崩し、<span class="battleBadgeFort">迎撃</span> は <span class="battleBadgeFlank">揺動</span> を止め、<span class="battleBadgeFlank">揺動</span> は <span class="battleBadgeCharge">突撃</span> をいなす。</div>
     <div class="commandGrid" style="margin-top:8px">${battleMainCommandsHtml()}</div>
-    <div class="g2" style="margin-top:8px"><button class="btn" onclick="battleRound()">ラウンド解決</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
+    <div class="g2" style="margin-top:8px"><button class="btn pulse" onclick="battleRound()">戦術実行</button><button class="btn g" onclick="autoBattleToDecision()">一気に推移</button></div>
     <div class="card" style="margin-top:8px"><div class="title" style="font-size:17px;margin-bottom:6px">戦況報告</div><div class="logBig">${G.battle.logs.slice(-5).join('<br>')}</div></div>`;
   $('#battleOverlay').classList.add('on');
 }
+
 
 function chooseBattleCmd(cmd){ G.battle.playerCmd = cmd; renderFleetBattle(); }
 
@@ -952,11 +947,11 @@ function battleRound(){
       const main = battleEntries('atk')[0];
       const cmdr = main ? getCmdr(main.fleet.id) : null;
       G.battle.playerCmd = (cmdr && cmdr.specialty && cmdr.specialty[0]) ? cmdr.specialty[0] : '中央突破';
-      toast('主攻命令が未選択だったため、自動で設定しました');
+      emitEvent('戦術自動補完','主攻命令が未選択だったため、司令部が即応命令を補完した。','warn',900);
     }
     const myCmd = G.battle.playerCmd;
     const enemyCmd = G.battle.aiCmd;
-    emitEvent('ラウンド解決', `自軍 ${myCmd} / 敵 ${enemyCmd}。火線が一斉に開く。`, 'warn', 1100, '主導権、損耗、潰走先まで一気に判定する。');
+    emitEvent('命令発令', `自軍 ${myCmd} / 敵 ${enemyCmd}。火線が一斉に開く。`, 'warn', 1100, '主導権、損耗、潰走先まで一気に判定する。');
     const init = resolveInitiative(myCmd, enemyCmd);
     if(init.atkLead) emitEvent('先手奪取', '自軍が主導権を握った。火線は敵より先に開く。', own(), 1200);
     else if(init.defLead) emitEvent('敵先制', '敵が火線を先に開き、こちらは受けながら動く。', foe(), 1200);
@@ -1146,7 +1141,7 @@ function resolveOccupationBattle(){
 
 function autoOccupationToDecision(){ while(G.battle && G.battle.mode==='occupation'){ if(!G.battle.playerOccCmd) G.battle.playerOccCmd = ['制圧強行','包囲締上','宣撫浸透'][rnd(3)]; const step=G.battle.step; resolveOccupationBattle(); if(!G.battle || G.battle.mode!=='occupation') break; if(G.battle.step===step) break; } }
 
-function closeBattleOverlay(){ $('#battleOverlay').classList.remove('on'); G.battle = null; }
+function closeBattleOverlay(){ $('#battleOverlay').classList.remove('on'); if(G) G.battle = null; }
 
 function passiveTurn(){
   const n = G.nation;
