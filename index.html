@@ -748,20 +748,25 @@ function prepareCampaignBattle(attackerFleetId, targetId){
   const attackMain = forces.atk[0].fleet;
   attackMain.consecutiveFrontTurns += 1;
   if(!enemyPresent){
-    emitEvent('敵艦隊影なし', `${sec.name} に敵主力の姿は薄い。制圧戦へ移る。`, 'fed', 1400, 'ただし防衛網は無傷とは限らない。');
+    emitEvent('制圧戦', `${sec.name} に敵主力は見当たらない。先に宙域防衛網を崩す段階へ移る。`, 'corp', 1500, 'ここは艦隊戦ではなく、直接の制圧戦だ。');
     const occ = prepareOccupationBattle(sec.id, forces.atk, ctx, {kind:'free'});
-    G.battle = occ;
-    renderOccupationBattle();
+    setTimeout(()=>{
+      G.battle = occ;
+      renderOccupationBattle();
+    }, 900);
     return;
   }
-  G.battle = {
+  const nextBattle = {
     mode:'fleet', targetId, round:1, maxRounds:3, finished:false, ctx,
     atk:forces.atk.map(x=>({fleetId:x.fleet.id, side:'atk', role:x.role})),
     def:forces.def.map(x=>({fleetId:x.fleet.id, side:'def', role:x.role})),
     playerCmd:null, aiCmd:aiMainCommand(foe(), sec), logs:[`${sec.name} 周辺で会戦発生。`], flashes:[ctx.type], result:null
   };
-  emitEvent('会戦開始', `${sec.name} で${ctx.type}。艦隊群が接敵し、砲火が宇宙を裂いた。`, importantSector(targetId)?'warn':own(), 1900, '艦隊戦ののち、包囲圧が足りれば占領戦へ移行する。');
-  renderFleetBattle();
+  emitEvent('艦隊戦', `${sec.name} で${ctx.type}。まず敵艦隊を押し崩す段階へ入る。`, importantSector(targetId)?'warn':own(), 1700, 'このフラッシュの後に、艦隊戦画面へ切り替わる。');
+  setTimeout(()=>{
+    G.battle = nextBattle;
+    renderFleetBattle();
+  }, 950);
 }
 
 function battleEntries(side){ return G.battle[side].map(x=>({entry:x, fleet:G.fleets.find(f=>f.id===x.fleetId)})); }
@@ -771,8 +776,11 @@ function getCmdr(fid){ const fl=G.fleets.find(f=>f.id===fid); return PEOPLE.find
 function resolveInitiative(myCmd, enemyCmd){
   const sec = G.battle.ctx.sector;
   const mod = G.battle.ctx.mod;
-  const atkMain = G.fleets.find(f=>f.id===mainEntry('atk').fleetId);
-  const defMain = G.fleets.find(f=>f.id===mainEntry('def').fleetId);
+  const atkMainEntry = mainEntry('atk');
+  const defMainEntry = mainEntry('def');
+  if(!atkMainEntry || !defMainEntry) return {diff:0, atkInit:0, defInit:0, atkLead:false, defLead:false};
+  const atkMain = G.fleets.find(f=>f.id===atkMainEntry.fleetId);
+  const defMain = G.fleets.find(f=>f.id===defMainEntry.fleetId);
   const atkSt = fleetEffectiveStats(atkMain), defSt = fleetEffectiveStats(defMain);
   const atkCmdr = getCmdr(atkMain.id), defCmdr = getCmdr(defMain.id);
   let atkInit = atkSt.mob + atkSt.scout*0.55 + atkCmdr.read*10 + G.battle.ctx.intelEdge*1.6 + mod.initAtk - (atkMain.status.supplyBroken?4:0) - mod.mobilityPenalty*(atkSt.mob<5?1:0);
@@ -792,6 +800,7 @@ function resolveDamage(myCmd, enemyCmd, init){
   const mod = G.battle.ctx.mod;
   const atk = battleEntries('atk');
   const def = battleEntries('def');
+  if(!atk.length || !def.length){ return {atkToDef:0, defToAtk:0, atkMorDmg:0, defMorDmg:0, atkSupDmg:0, defSupDmg:0, matchup:'tie'}; }
   const atkMain = atk[0].fleet, defMain = def[0].fleet;
   const atkCmdr = getCmdr(atkMain.id), defCmdr = getCmdr(defMain.id);
   const atkMainSt = fleetEffectiveStats(atkMain), defMainSt = fleetEffectiveStats(defMain);
@@ -939,7 +948,12 @@ function chooseBattleCmd(cmd){ G.battle.playerCmd = cmd; renderFleetBattle(); }
 function battleRound(){
   try{
     if(!G.battle || G.battle.mode!=='fleet'){ toast('会戦状態が崩れています'); return; }
-    if(!G.battle.playerCmd){ toast('主攻命令を選んでください'); return; }
+    if(!G.battle.playerCmd){
+      const main = battleEntries('atk')[0];
+      const cmdr = main ? getCmdr(main.fleet.id) : null;
+      G.battle.playerCmd = (cmdr && cmdr.specialty && cmdr.specialty[0]) ? cmdr.specialty[0] : '中央突破';
+      toast('主攻命令が未選択だったため、自動で設定しました');
+    }
     const myCmd = G.battle.playerCmd;
     const enemyCmd = G.battle.aiCmd;
     emitEvent('ラウンド解決', `自軍 ${myCmd} / 敵 ${enemyCmd}。火線が一斉に開く。`, 'warn', 1100, '主導権、損耗、潰走先まで一気に判定する。');
@@ -950,6 +964,7 @@ function battleRound(){
     const dmg = resolveDamage(myCmd, enemyCmd, init);
     applySideDamage('def', dmg.atkToDef, dmg.atkMorDmg, dmg.defSupDmg);
     applySideDamage('atk', dmg.defToAtk, dmg.defMorDmg, dmg.atkSupDmg);
+    emitEvent('交戦', `${dmg.matchup==='win'?'自軍が読み勝ち。':dmg.matchup==='lose'?'敵が読み勝ち。':'両軍拮抗。'} 敵戦力低下 ${dmg.atkToDef} / 自軍戦力低下 ${dmg.defToAtk}。`, dmg.matchup==='lose'?'warn':own(), 900, 'ラウンドの損耗と崩れを反映した。');
     const line = `自軍 ${myCmd} / 敵 ${enemyCmd}。${dmg.matchup==='win'?'読み勝ち。':dmg.matchup==='lose'?'押し負けた。':'正面で拮抗。'} 敵戦力低下 ${dmg.atkToDef}。自軍戦力低下 ${dmg.defToAtk}。`;
     G.battle.logs.push(line);
     if(myCmd==='補給線狙い') G.battle.logs.push('自軍の揺動は敵補給へ深く刺さり、継戦力が鈍った。');
